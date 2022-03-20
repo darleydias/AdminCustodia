@@ -29,7 +29,7 @@ $path_menu="../";
   }
   </script>
   <script>
-  function incluirDados(proc,fase,oper,rat,mamp,pro){
+  function incluirDados(proc,nrProc,com,mamp,pro,desc){
     let table = document.getElementById('tb_proc');
     let thead = document.getElementById('thead_1');
     let tbody = document.getElementById('tbody_1');
@@ -41,14 +41,12 @@ $path_menu="../";
     let row_data_2 = document.createElement('td');
     let row_data_3 = document.createElement('td');
     let row_data_4 = document.createElement('td');
-    let row_data_5 = document.createElement('td');
     let row_link = document.createElement('td');
     row_data.innerHTML = proc;
-    row_data_1.innerHTML = fase;
-    row_data_2.innerHTML = oper;
-    row_data_3.innerHTML = rat;
-    row_data_4.innerHTML = mamp+" - "+pro;
-
+    row_data_1.innerHTML = nrProc;
+    row_data_2.innerHTML = com;
+    row_data_3.innerHTML = mamp+" - "+pro;
+    row_data_4.innerHTML = desc;
     conteudo = "<div class='float-right'><a href='#' ";
     conteudo = conteudo + " onclick=\"this.parentNode.parentNode.parentNode.style.display = 'none'\">"
     conteudo = conteudo + "<i class='fa fa-minus-circle' style='font-size:28px;color:red'></i></a>";
@@ -87,7 +85,7 @@ $path_menu="../";
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0">Lançar operação</h1>
+            <h1 class="m-0">Procedimento</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
@@ -111,28 +109,29 @@ $path_menu="../";
                 <div class="card-body">
                   <div class="box-body">
                   <div class="form-group">
-                      <label for="responsavel">Procedimentos</label>
+                      <label for="responsavel">Tipo de Procedimento</label>
                       <select id="proc" class="form-control select2 select2-hidden-accessible" style="width: 100%;" data-select2-id="1" tabindex="-1" aria-hidden="true">
                         <option selected="selected" data-select2-id="3">selecione</option>
-                        <option value="PIC">PIC	2021-34529	Belo Horizonte	29675 - Dr. Rodrigo	Investigação de crimes contra a ordem econômica...</option>
-                        <option value="PAAF">PAAF	2022-11378	Belo Horizonte	29345 - Dr. Mauro	Investigação de Organizacão criminosa que atua com caixa-níquel</option>
-                        <option value="IP">PAAF	2022-11378	Belo Horizonte	29345 - Dr. Antônio	Investigação de Organizacão criminosa Tráfico de Drogas</option>
+                        <option value="PIC">PIC</option>
+                        <option value="PAAF">PAAF</option>
+                        <option value="IP">IP</option>
                       </select>  
                     </div>
                     <div class="form-group">
-                      <label for="exampleInputPassword1">Fase</label>
-                      <input type="text" class="form-control" id="fase" placeholder="Digite o Número da Fase">
+                      <label for="exampleInputPassword1">Número do Procedimento</label>
+                      <input type="text" class="form-control" id="nrProc" placeholder="Digite o Número do Procedimento">
                     </div>
                     <div class="form-group">
-                      <label for="exampleInputPassword1">Nome da operação</label>
-                      <input type="text" class="form-control" id="oper" placeholder="Digite o Nome da Operação">
+                      <label for="responsavel">Comarca</label>
+                      <select id="com" class="form-control select2 select2-hidden-accessible" style="width: 100%;" data-select2-id="1" tabindex="-1" aria-hidden="true">
+                        <option selected="selected" data-select2-id="3">selecione</option>
+                        <option value="Belo Horizonte">Belo Horizonte</option>
+                        <option value="Betim">Betim</option>
+                        <option value="Contagem">Contágem</option>
+                      </select>  
                     </div>
                     <div class="form-group">
-                      <label for="exampleInputPassword1">RAT/BOS</label>
-                      <input type="text" class="form-control" id="rat" placeholder="Digite o RAT ou BOS">
-                    </div>
-                    <div class="form-group">
-                    <label for="exampleInputPassword1">Responsável</label>
+                    <label for="exampleInputPassword1">Promotor Responsável</label>
                       <div class="row">
                         <div class="col-sm-2">
                         <input type="text" size="10" class="form-control" id="mamp" placeholder="MAMP/Matrícula" v-model="object.mamp" >
@@ -143,7 +142,11 @@ $path_menu="../";
                       </div>
                     </div>
                     <div class="form-group">
-                       <button type="button" onclick="javascript:incluirDados(document.getElementById('proc').value,document.getElementById('fase').value,document.getElementById('oper').value,document.getElementById('rat').value,document.getElementById('mamp').value,document.getElementById('pro').value);" class="btn btn-primary">Gravar</button>
+                      <label for="exampleInputPassword1">Descrição</label>
+                      <input type="text" class="form-control" id="desc" placeholder="Descreva o Procedimento">
+                    </div>
+                    <div class="form-group">
+                       <button type="button" onclick="javascript:incluirDados(document.getElementById('proc').value,document.getElementById('nrProc').value,document.getElementById('com').value,document.getElementById('mamp').value,document.getElementById('pro').value,document.getElementById('desc').value);" class="btn btn-primary">Gravar</button>
                     </div>
                   </div>
                 </div>
@@ -156,11 +159,11 @@ $path_menu="../";
                     <table id="tb_proc" class="table table-bordered table-hover">
                       <thead id="thead_1">
                       <tr>
-                        <th style="border-right-style:hidden">Procedimento  </th>                       
-                        <th style="border-right-style:hidden">Fase</th>                       
-                        <th style="border-right-style:hidden">Nome da operação</th> 
-                        <th style="border-right-style:hidden">RAT/BOS</th>                      
-                        <th style="border-right-style:hidden">Responsável</th> 
+                        <th style="border-right-style:hidden">Tipo </th>                       
+                        <th style="border-right-style:hidden">Nr de proc.</th>                       
+                        <th style="border-right-style:hidden">Comarca</th> 
+                        <th style="border-right-style:hidden">Promotor</th>                      
+                        <th style="border-right-style:hidden">Descrição</th> 
                         <th><div class="float-right">
                               <a href="#" onclick="javascript:mostrar(document.getElementById('form_proc').style.display);">
                                 <i class="fa fas fa-plus-circle fa-2x" style="font-size:28px"></i>
@@ -171,19 +174,19 @@ $path_menu="../";
                       </thead>
                       <tbody id="tbody_1">
                         <tr>
-                          <td style="border-right-style:hidden">PIC	2021-34529	- Dr. Sandro - Crimes contra a ordem econômica</td>
-                          <td style="border-right-style:hidden">01</td>
-                          <td style="border-right-style:hidden">Operação Coiote</td>
-                          <td style="border-right-style:hidden">-</td>
-                          <td style="border-right-style:hidden">8785 - Dr. Cleverson</td></td>
+                          <td style="border-right-style:hidden">PIC</td>
+                          <td style="border-right-style:hidden">2021-34529</td>
+                          <td style="border-right-style:hidden">Belo Horizonte</td>
+                          <td style="border-right-style:hidden">29675 - Dr. Rodrigo</td>
+                          <td style="border-right-style:hidden">Investigação de crimes contra a ordem econômica</td></td>
                           <td ><div class="float-right"><a href="#" onclick="this.parentNode.parentNode.parentNode.style.display = 'none'"><i class="fa fa-minus-circle" style="font-size:28px;color:red"></i></a></div></td>
                         </tr>
                         <tr>
-                          <td style="border-right-style:hidden">PAAF 2022-11378	- Dr. Valdir - Caixa-níquel</td>
-                          <td style="border-right-style:hidden">04  </td>
-                          <td style="border-right-style:hidden">Operação Bicho da Seda</td>
-                          <td style="border-right-style:hidden">-</td>
-                          <td style="border-right-style:hidden">1096 - Dr. Salmo</td></td>
+                          <td style="border-right-style:hidden">PAAF</td>
+                          <td style="border-right-style:hidden">2022-11378  </td>
+                          <td style="border-right-style:hidden">Belo Horizonte</td>
+                          <td style="border-right-style:hidden">29345 - Dr. Mauro</td>
+                          <td style="border-right-style:hidden">Investigação de Organizacão criminosa que atua com caixa-níquel</td></td>
                           <td ><div class="float-right"><a href="#" onclick="this.parentNode.parentNode.parentNode.style.display = 'none'"><i class="fa fa-minus-circle" style="font-size:28px;color:red"></i></a></div></td>
                         </tr>
                       </tbody>
@@ -234,7 +237,19 @@ $path_menu="../";
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 <script src="../../dist/js/pages/dashboard3.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script>
+    var app = new Vue({
+        el: '#app',
+        data : {
+          object:{
+            promotor : '',
+            mamp : '',
+          }
+            
+        }
 
+    });
+</script>
 </div>
 </body>
 </html>

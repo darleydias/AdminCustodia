@@ -1,7 +1,7 @@
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
-    <a href="./index3.php" class="brand-link">
-      <img src="./dist/img/logoCC.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
+    <a href="<?php echo($path_page)?>index3.php" class="brand-link">
+      <img src="<?php echo($path_page)?>dist/img/logoCC.png" alt="AdminCustodia Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
       <span class="brand-text font-weight-light">Cadeia Custódia</span>
     </a>
 
@@ -10,7 +10,7 @@
       <!-- Sidebar user panel (optional) -->
       <div class="user-panel mt-3 pb-3 mb-3 d-flex">
         <div class="image">
-          <img src="./dist/img/darley.jpg" class="img-circle elevation-2" alt="User Image">
+          <img src="<?php echo($path_page)?>dist/img/darley.jpg" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
           <a href="#" class="d-block">Darley Wilson</a>
@@ -32,9 +32,10 @@
       <!-- Sidebar Menu -->
       <nav class="mt-2">
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-          <!-- Add icons to the links using the .nav-icon class
+             <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
-        <li class="nav-item menu-open">
+        <!--Inicio seçao cadastro-->
+          <li class="nav-item menu-open">
             <a href="#" class="nav-link active">
               <i class="nav-icon fas fa-edit"></i>
               <p>
@@ -43,60 +44,162 @@
               </p>
             </a>
             <ul class="nav nav-treeview">
-              <!--li class="nav-item">
-                <a href="./index.html" class="nav-link">
-                  <i class="far fa-circle text-info"></i>
-                  <p>Tipo de investigação</p>
-                </a>
-              </li-->
               <li class="nav-item">
-                <a href="/AdminLTE/pages/cadastros/tipoInvestigacao.php" class="nav-link">
+                <a href="<?php echo($path_page);?>pages/cadastros/tipoInvestigacao.php" class="nav-link">
                   <i class="far fa-circle text-info"></i>
-                  <p>Tipo de investigação</p>
+                  <p>Tipo de Procedimento</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="/AdminLTE//pages/cadastros/tipoOperacao.php" class="nav-link">
+                <a href="<?php echo($path_page)?>pages/cadastros/tipoOperacao.php" class="nav-link">
                   <i class="far fa-circle text-info"></i>
                   <p>Tipo de Operações</p>
                 </a>
               </li>
+              <li class="nav-item">
+                <a href="<?php echo($path_page);?>pages/cadastros/procedimento.php" class="nav-link">
+                  <i class="far fa-circle text-info"></i>
+                  <p>Procedimento</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="<?php echo($path_page)?>pages/cadastros/tipoEvidencia.php" class="nav-link">
+                  <i class="far fa-circle text-info"></i>
+                  <p>Tipo de Evidência</p>
+                </a>
+              </li>
             </ul>
         </li>
-        <li class="nav-item menu-open">
+        <!--Fim seçao cadastro-->
+        <!--Inicio lançamentos-->
+          <li class="nav-item menu-open">
             <a href="#" class="nav-link active">
               <i class="nav-icon fas fa-edit"></i>
               <p>
-                Registro de dados
+                Lançamento de dados
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                  <a href="<?php echo($path_page)?>pages/transacionais/operacao.php" class="nav-link">
+                    <i class="far fa-circle text-info"></i>
+                    <p>Lançar operação</p>
+                  </a>
+              </li>
+              <li class="nav-item">
+                  <a href="<?php echo($path_page)?>pages/transacionais/ponto.php" class="nav-link">
+                    <i class="far fa-circle text-info"></i>
+                    <p>Lançar ponto</p>
+                  </a>
+              </li>
+              <li class="nav-item">
+                  <a href="<?php echo($path_page)?>pages/cadastros/tipoOperacao.php" class="nav-link">
+                    <i class="far fa-circle text-info"></i>
+                    <p>Lançar participantes</p>
+                  </a>
+              </li>
+            </ul>
+          </li>
+          <!--Dia da operação-->
+          <li class="nav-item menu-open">
+            <a href="#" class="nav-link active">
+              <i class="nav-icon fas fa-edit"></i>
+              <p>
+                Dia da Operação
                 <i class="right fas fa-angle-left"></i>
               </p>
             </a>
             <ul class="nav nav-treeview">
                 <li class="nav-item">
-                    <a href="./tipoOperacao.php" class="nav-link">
+                <a href="<?php echo($path_page)?>pages/transacionais/evidencias.php" class="nav-link">
                       <i class="far fa-circle text-info"></i>
-                      <p>Lancar operacão</p>
+                      <p>Evidências</p>
                     </a>
                   </li>
-            </ul>&gt;
-        </li>
-        <li class="nav-item">
-            <a href="pages/widgets.html" class="nav-link">
-              <i class="nav-icon fas fa-th"></i>
+                <li class="nav-item">
+                  <a href="<?php echo($path_page)?>pages/transacionais/ponto.php" class="nav-link">
+                      <i class="far fa-circle text-info"></i>
+                      <p>Testem. evidência</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                <a href="<?php echo($path_page)?>pages/transacionais/ponto.php" class="nav-link">
+                      <i class="far fa-circle text-info"></i>
+                      <p>Pessoas presentes</p>
+                    </a>
+                </li>
+            </ul>
+          </li>
+          <!--Movimentacao-->
+          <li class="nav-item menu-open">
+            <a href="#" class="nav-link active">
+              <i class="nav-icon fas fa-edit"></i>
               <p>
-                Widgets
-                <span class="right badge badge-danger">New</span>
+                Movimentação
+                <i class="right fas fa-angle-left"></i>
               </p>
             </a>
+            <ul class="nav nav-treeview">
+                <li class="nav-item">
+                <a href="<?php echo($path_page)?>pages/transacionais/movimentacao.php" class="nav-link">
+                      <i class="far fa-circle text-info"></i>
+                      <p>Movimentar item</p>
+                    </a>
+                  </li>
+                <li class="nav-item">
+                  <a href="<?php echo($path_page)?>pages/transacionais/ponto.php" class="nav-link">
+                      <i class="far fa-circle text-info"></i>
+                      <p>Testem. evidência</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                <a href="<?php echo($path_page)?>pages/transacionais/ponto.php" class="nav-link">
+                      <i class="far fa-circle text-info"></i>
+                      <p>Pessoas presentes</p>
+                    </a>
+                </li>
+            </ul>
+          </li>
+        
+
+
+
+
+
+
+
+
+
+          
+                <a href="<?php echo($path_root)?>pages/transacionais/ponto.php" class="nav-link">
+                      <i class="far fa-circle text-info"></i>
+                      <p>Movim. da evidência</p>
+                    </a>
+                  </li>
+                <li class="nav-item">
+                <a href="<?php echo($path_page)?>pages/transacionais/ponto.php" class="nav-link">
+                      <i class="far fa-circle text-info"></i>
+                      <p>Resp. Movim.</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                <a href="<?php echo($path_page)?>pages/transacionais/ponto.php" class="nav-link">
+                      <i class="far fa-circle text-info"></i>
+                      <p>Locais movim.</p>
+                    </a>
+                </li>
+              </ul>  
+        </li>
+        <li class="nav-item">
+                <a href="../../pages/cadastros/movimentacao.php" class="nav-link">
+                  <i class="far fa-circle text-info"></i>
+                  <p>Movim. de evidência</p>
+                </a>
           </li>
           <li class="nav-item">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-copy"></i>
-              <p>
-                Layout Options
-                <i class="fas fa-angle-left right"></i>
-                <span class="badge badge-info right">6</span>
-              </p>
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
@@ -593,7 +696,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="https://adminlte.io/docs/3.1/" class="nav-link">
+            <a href="https://AdminCustodia.io/docs/3.1/" class="nav-link">
               <i class="nav-icon fas fa-file"></i>
               <p>Documentation</p>
             </a>

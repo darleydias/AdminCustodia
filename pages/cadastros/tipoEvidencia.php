@@ -70,7 +70,7 @@ $path_menu="../";
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0">Tipo de operação</h1>
+            <h1 class="m-0">Tipo de evidência</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
@@ -93,10 +93,10 @@ $path_menu="../";
                   <div class="box-body">
                     <div class="form-group">
                       <label for="exampleInputPassword1">Descrição</label>
-                      <input type="text" class="form-control" id="proc" placeholder="Digite um designativo para o tipo de procedimento">
+                      <input type="text" class="form-control" id="proc" placeholder="Especifique o tipo de evidência">
                     </div>
                     <div class="form-group">
-                       <button type="button" onclick="javascript:incluirDados(document.getElementById('proc').value)" class="btn btn-primary">Gravar</button>
+                       <button type="button" onclick="javascript:incluirDados(document.getElementById('proc').value);document.getElementById('form_proc').style.display='none'" class="btn btn-primary">Gravar</button>
                     </div>
                   </div>
                 </div>
@@ -115,8 +115,14 @@ $path_menu="../";
                       </tr>
                     </thead>
                       <tbody id="tbody_1">
-                        <tr><td style="border-right-style:hidden">Operação Própria</td><td><div class="float-right"><a href="#" onclick="this.parentNode.parentNode.parentNode.style.display = 'none'"><i class="fa fa-minus-circle" style="font-size:28px;color:red"></i></a></div></td></tr>
-                        <tr><td style="border-right-style:hidden">Apoio</td><td><div class="float-right"><a href="#" onclick="this.parentNode.parentNode.parentNode.style.display = 'none'"><i class="fa fa-minus-circle" style="font-size:28px;color:red"></i></i></a></div></td></tr>
+                        <tr><td style="border-right-style:hidden">Microcomputador</td><td><div class="float-right"><a href="#" onclick="this.parentNode.parentNode.parentNode.style.display = 'none'"><i class="fa fa-minus-circle" style="font-size:28px;color:red"></i></a></div></td></tr>
+                        <tr><td style="border-right-style:hidden">Notebook</td><td><div class="float-right"><a href="#" onclick="this.parentNode.parentNode.parentNode.style.display = 'none'"><i class="fa fa-minus-circle" style="font-size:28px;color:red"></i></i></a></div></td></tr>
+                        <tr><td style="border-right-style:hidden">Tablet</td><td><div class="float-right"><a href="#" onclick="this.parentNode.parentNode.parentNode.style.display = 'none'"><i class="fa fa-minus-circle" style="font-size:28px;color:red"></i></i></a></div></td></tr>
+                        <tr><td style="border-right-style:hidden">Smartphone</td><td><div class="float-right"><a href="#" onclick="this.parentNode.parentNode.parentNode.style.display = 'none'"><i class="fa fa-minus-circle" style="font-size:28px;color:red"></i></i></a></div></td></tr>
+                        <tr><td style="border-right-style:hidden">Celular</td><td><div class="float-right"><a href="#" onclick="this.parentNode.parentNode.parentNode.style.display = 'none'"><i class="fa fa-minus-circle" style="font-size:28px;color:red"></i></i></a></div></td></tr>
+                        <tr><td style="border-right-style:hidden">Joias</td><td><div class="float-right"><a href="#" onclick="this.parentNode.parentNode.parentNode.style.display = 'none'"><i class="fa fa-minus-circle" style="font-size:28px;color:red"></i></i></a></div></td></tr>
+                        <tr><td style="border-right-style:hidden">Dinheiro</td><td><div class="float-right"><a href="#" onclick="this.parentNode.parentNode.parentNode.style.display = 'none'"><i class="fa fa-minus-circle" style="font-size:28px;color:red"></i></i></a></div></td></tr>
+                        <tr><td style="border-right-style:hidden">Documentos</td><td><div class="float-right"><a href="#" onclick="this.parentNode.parentNode.parentNode.style.display = 'none'"><i class="fa fa-minus-circle" style="font-size:28px;color:red"></i></i></a></div></td></tr>
                       </tbody>
           <!--fim tabela-->
                   </table>
