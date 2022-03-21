@@ -204,7 +204,7 @@ include($path_menu."include/modal.php");
           <!-- inicio Tabela-->
             <div class="card">
                 <div class="card-body">
-                    <table id="tb_proc" class="table table-bordered table-hover" border="1">
+                    <table id="tb_proc" class="table table-bordered table-hover">
                         <tr>
                             <td colspan="6">
                                 <div class="form-group">
