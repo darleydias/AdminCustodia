@@ -34,63 +34,61 @@ $path_menu="../";
     if(value==1)(window.location.href ="http://localhost/AdminCustodia/pages/transacionais/ponto1.php");
     if(value==2)(window.location.href ="http://localhost/AdminCustodia/pages/transacionais/ponto2.php");
     if(value==3)(window.location.href ="http://localhost/AdminCustodia/pages/transacionais/ponto3.php");
-  }
-  </script>
-  <script>
+  };
   function incluirDados(ponto,end,comp,mamp,pro){
-    let table = document.getElementById('tb_proc');
+    let table = document.getElementById('tb_ponto');
     let thead = document.getElementById('thead_1');
     let tbody = document.getElementById('tbody_1');
     table.appendChild(thead);
     table.appendChild(tbody);
     let row = document.createElement('tr');
- 
     let row_data_1 = document.createElement('td');
     let row_data_2 = document.createElement('td');
     let row_data_3 = document.createElement('td');
     let row_data_4 = document.createElement('td');
     let row_link = document.createElement('td');
-  
+    row_data_1.setAttribute("style", "border-right-style:hidden");
+    row_data_2.setAttribute("style", "border-right-style:hidden");
+    row_data_3.setAttribute("style", "border-right-style:hidden");
+    row_data_4.setAttribute("style", "border-right-style:hidden");
     row_data_1.innerHTML = ponto;
     row_data_2.innerHTML = end;
     row_data_3.innerHTML = comp;
     row_data_4.innerHTML = mamp+" - "+pro;
-    
     conteudo = "<div class='float-right'><a href='#' ";
     conteudo = conteudo + " onclick=\"this.parentNode.parentNode.parentNode.style.display = 'none'\">"
     conteudo = conteudo + "<i class='fa fa-minus-circle' style='font-size:28px;color:red'></i></a>";
- 
     row_link.innerHTML = conteudo;
-
     row.appendChild(row_data_1);
     row.appendChild(row_data_2);
     row.appendChild(row_data_3);
     row.appendChild(row_data_4);
     row.appendChild(row_link);
     tbody.appendChild(row);
-    document.getElementById('form_proc').style.display='none';
+    document.getElementById('form_ponto').style.display='none';
   }
   function incluirDadosModal(mamp,pro){
+ 
     let table = document.getElementById('tb_modal');
     let thead = document.getElementById('theadM_1');
     let tbody = document.getElementById('tbodyM_1');
     table.appendChild(thead);
     table.appendChild(tbody);
     let row = document.createElement('tr');
- 
     let row_data_1 = document.createElement('td');
+    let row_data_2 = document.createElement('td');
     let row_link = document.createElement('td');
-  
-    row_data_1.innerHTML = mamp+" - "+pro;
-  
-    
+ 
+    row_data_1.innerHTML = mamp;
+    row_data_2.innerHTML = pro;
+    row_data_1.setAttribute("style", "border-right-style:hidden");
+    row_data_2.setAttribute("style", "border-right-style:hidden");
     conteudo = "<div class='float-right'><a href='#' ";
     conteudo = conteudo + " onclick=\"this.parentNode.parentNode.parentNode.style.display = 'none'\">"
-    conteudo = conteudo + "<i class='fa fa-minus-circle' style='font-size:28px;color:red'></i></a>";
- 
+    conteudo = conteudo + "<i class='fa fa-minus-circle' style='font-size:28px;color:red;text-align:right;'></i></a>";
     row_link.innerHTML = conteudo;
-
     row.appendChild(row_data_1);
+    row.appendChild(row_data_2);
     row.appendChild(row_link);
     tbody.appendChild(row);
     document.getElementById('form_modal').style.display='none';
@@ -98,32 +96,71 @@ $path_menu="../";
   </script>
 </head>
 
-<?php
-$conteudoModal ="<div class=\"row\"><div class=\"col-sm-2\"><input type=\"text\" size=\"10\" class=\"form-control\" id=\"mamp\" placeholder=\"MAMP/Matrícula\" v-model=\"object.mamp\"></div>";
-$conteudoModal =$conteudoModal. "<div class=\"col-sm-8\"><input type=\"text\" size=\"10\" class=\"form-control\" id=\"pro\" placeholder=\"Nome\" v-model=\"object.promotor\">";
-$conteudoModal =$conteudoModal. "</div><div class=\"col-sm-2\"><button class=\"btn btn-primary\" onclick=\"incluirDadosModal(document.getElementById('mamp').value,document.getElementById('pro').value)\">Gravar</button></div></div>";
-$conteudoModal =$conteudoModal. "<form name=\"from_modal\" id=\"form_proc\" style=\"display:block\"><div class=\"card\"><div class=\"card-body\"><div class=\"box-body\">";
-$conteudoModal =$conteudoModal. "<table id=\"tb_modal\" class=\"table table-bordered table-hover\">";
-$conteudoModal =$conteudoModal. "<thead id=\"theadM_1\"><tr><th style=\"border-right-style:hidden\">Participantes</th>";                       
-$conteudoModal =$conteudoModal. "<th><div class=\"float-right\"><a href=\"#\" onclick=\"document.getElementById('grava').style.display='block';\">";
-$conteudoModal =$conteudoModal. "<i class=\"fa fas fa-plus-circle fa-2x\" style=\"font-size:28px\"></i></a></div></th></tr>";
-$conteudoModal =$conteudoModal. "</thead><tbody id=\"tbodyM_1\">";
-
-$conteudoModal =$conteudoModal. "<tr id=\"linha1\"><td style=\"border-right-style:hidden\">098.345-5 - Cap Bueno Lopes</td><td><div class=float-right><a href=\"#\" data-toggle=\"modal\" data-target=\"#modal-lg\">";
-$conteudoModal =$conteudoModal. "<a href=\"#\" onclick=\"this.parentNode.parentNode.parentNode.style.display='none'\"><i class=\"fa fa-minus-circle\" style=\"font-size:28px;color:red\"></i></a></div></td></tr>";
-$conteudoModal =$conteudoModal. "<tr id=\"linha1\"><td style=\"border-right-style:hidden\">108.345-7 - Sgt Sebastião carlos Lopes</td><td><div class=float-right><a href=\"#\" data-toggle=\"modal\" data-target=\"#modal-lg\">";
-$conteudoModal =$conteudoModal. "<a href=\"#\" onclick=\"this.parentNode.parentNode.parentNode.style.display='none'\"><i class=\"fa fa-minus-circle\" style=\"font-size:28px;color:red\"></i></a></div></td></tr>";
-$conteudoModal =$conteudoModal. "<tr id=\"linha1\"><td style=\"border-right-style:hidden\">098.345-5 - Cap Bueno Lopes</td><td><div class=float-right><a href=\"#\" data-toggle=\"modal\" data-target=\"#modal-lg\">";
-$conteudoModal =$conteudoModal. "<a href=\"#\" onclick=\"this.parentNode.parentNode.parentNode.style.display='none'\"><i class=\"fa fa-minus-circle\" style=\"font-size:28px;color:red\"></i></a></div></td></tr>";
-$conteudoModal =$conteudoModal. "<tr id=\"linha1\"><td style=\"border-right-style:hidden\">098.345-5 - Cap Bueno Lopes</td><td><div class=float-right><a href=\"#\" data-toggle=\"modal\" data-target=\"#modal-lg\">";
-$conteudoModal =$conteudoModal. "<a href=\"#\" onclick=\"this.parentNode.parentNode.parentNode.style.display='none'\"><i class=\"fa fa-minus-circle\" style=\"font-size:28px;color:red\"></i></a></div></td></tr>";
-
-
-$conteudoModal =$conteudoModal. "</tbody></table></div></div></div>";
-$conteudoModal =$conteudoModal. "</form>";
-$tilteModal="Cadastro de Participantes ";
-?>
 <body class="hold-transition sidebar-mini">
+<!--MODAL-->
+<div class="modal fade" id="modal-lg">
+<div class="modal-dialog modal-lg">
+<div class="modal-content">
+  <div class="modal-header">
+    <h4 class="modal-title">Participantes</h4>
+  </div>
+  <div class="modal-body">
+    <p>
+      <div class="row">
+        <div class="col-sm-12">
+            <form name="form_modal" id="form_modal" style="display:none">
+                    <div class="card">
+                      <div class="card-body">
+                        <div class="box-body">
+                          <div class="form-group">
+                            <div class="row">
+                              <div class="col-lg-2">
+                                <label for="mampModal">MAMP/Matrícula</label>
+                                <input type="text" class="form-control" id="mampModal" placeholder="Digite o MAMP o Matrícula">
+                              </div>
+                              <div class="col-lg-8">
+                                <label for="nomeModal">Nome</label>
+                                <input type="text" class="form-control" id="nomeModal" placeholder="Digite o nome do participante">
+                              </div>
+                            </div>
+                          </div>
+                          <div class="form-group">
+                              <button type="button" onclick="javascript:incluirDadosModal(document.getElementById('mampModal').value,document.getElementById('nomeModal').value)" class="btn btn-primary">Gravar</button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+            </form>
+         </div>
+      </div>
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="card">
+        <div class="card-body">
+          <table id="tb_modal" name="tb_modal" class="table table-bordered table-hover">
+              <thead id="theadM_1"><th style="border-right-style:hidden">MAMP/Matrícula</th><th style="border-right-style:hidden">Nome</th><th><a href="#" style="text-align:right" onclick="document.getElementById('form_modal').style.display='block';"><i class="fa fas fa-plus-circle fa-2x" style="font-size:28px"></i></a></th></thead>
+              <tbody id="tbodyM_1">
+              <tr><td style="border-right-style:hidden">63876</td><td style="border-right-style:hidden">Dr. Lindomar Silva</td><td><a href="#" style="text-align:right" onclick="this.parentNode.parentNode.style.display = 'none'"><i class="fa fa-minus-circle" style="font-size:28px;color:red;border-right-style:hidden"></i></a></td></tr>
+              <tr><td style="border-right-style:hidden">123.564-3</td><td style="border-right-style:hidden">1Sgt Antonieta</td><td><a href="#" style="text-align:right" onclick="this.parentNode.parentNode.style.display = 'none'"><i class="fa fa-minus-circle" style="font-size:28px;color:red;border-right-style:hidden"></i></a></td></tr>
+              <tr><td style="border-right-style:hidden">109.678-7</td><td style="border-right-style:hidden">1 Sgt Fabio Fulgêncio</td><td><a href="#" style="text-align:right" onclick="this.parentNode.parentNode.style.display = 'none'"><i class="fa fa-minus-circle" style="font-size:28px;color:red;border-right-style:hidden"></i></a></td></tr>
+              <tr><td style="border-right-style:hidden">121.376-9</td><td style="border-right-style:hidden">2 Sgt Clemencia Fagundes</td><td><a href="#" style="text-align:right" onclick="this.parentNode.parentNode.style.display = 'none'"><i class="fa fa-minus-circle" style="font-size:28px;color:red;border-right-style:hidden"></i></a></td></tr>
+              <tr><td style="border-right-style:hidden">135.876-2</td><td style="border-right-style:hidden">Soldado Juvenal Souza</td><td><a href="#" style="text-align:right" onclick="this.parentNode.parentNode.style.display = 'none'"><i class="fa fa-minus-circle" style="font-size:28px;color:red;border-right-style:hidden"></i></a></td></tr>
+             </tbody>
+            </table>
+          </div>
+      </div>
+    </div>
+  </div>
+</p>
+</div>
+<div class="modal-footer justify-content-between">
+<button type="button" class="btn btn-primary" data-dismiss="modal" aria-label="Close">Sair</button>
+</div>
+</div>
+</div>
+</div>
+<!--fim modal-->
+
 <?php 
 include($path_menu."include/modal.php");
 ?>
@@ -151,74 +188,73 @@ include($path_menu."include/modal.php");
       </div><!-- /.container-fluid -->
     </div>
     <!-- /.content-header -->
-
+    
     <!-- Main content -->
     <div class="content">
       <div class="container-fluid">
-        <div class="row">
-          <div class="col-lg-12">
-                <!--formulário-->  
-              <form name="form_proc" id="form_proc" style="display:none">
-              <div class="card">
-                <div class="card-body">
-                  <div class="box-body">
-                    <div class="form-group">
-                        <label for="responsavel">Operação</label>
-                        <select id="ope" class="form-control select2 select2-hidden-accessible" style="width: 100%;" data-select2-id="1" tabindex="-1" aria-hidden="true">
-                          <option selected="selected" data-select2-id="3">selecione</option>
-                          <option value="Operação Valquíria">Operação Valquíria</option>
-                          <option value="Operação falcão">Operação falcão</option>
-                          <option value="Operação Mel Amargo">Operação Mel Amargo</option>
-                        </select>  
-                    </div>
-                    <div class="form-group">
-                      <label for="exampleInputPassword1">Número do Ponto</label>
-                      <input type="text" class="form-control" id="ponto" placeholder="Digite o Número do ponto">
-                    </div>
-                    <div class="form-group">
-                      <label for="exampleInputPassword1">Endereço</label>
-                      <textarea class="form-control" id="end"rows="3" placeholder="Digite o endereço" ></textarea>
-                    </div>
-                    <div class="form-group">
-                      <label for="exampleInputPassword1">Complemento</label>
-                      <input type="text" class="form-control" id="comp" placeholder="Digite o complemento">
-                    </div>
-                    <div class="form-group">
-                    <label for="exampleInputPassword1">Responsável</label>
-                      `<div class="row">
-                        <div class="col-sm-2">
-                        <input type="text" size="10" class="form-control" id="mamp" placeholder="MAMP/Matrícula" v-model="object.mamp" >
+            <div class="row">
+             <div class="col-lg-12">
+                <div class="card">
+                      <div class="card-body">
+                        <div class="box-body">
+                          <div class="form-group">
+                              <label for="opePesquisa">Operação</label>
+                              <select id="opePesquisa"  onChange="javascript:operacao();" class="form-control select2 select2-hidden-accessible" style="width: 100%;" data-select2-id="1" tabindex="-1" aria-hidden="true">
+                                <option selected="selected" data-select2-id="3">selecione</option>
+                                <option value="1">Operação Valquíria</option>
+                                <option value="2">Operação falcão</option>
+                                <option value="3">Operação Mel Amargo</option>
+                              </select>  
+                          </div>
                         </div>
-                        <div class="col-sm-10">
-                        <input type="text" size="10" class="form-control" id="pro" placeholder="Nome" v-model="object.promotor">
-                        </div>
-                      </div>`
-                    </div>
-                    <div class="form-group">                                                                
-                       <button type="button" onclick="javascript:incluirDados(document.getElementById('ponto').value,document.getElementById('end').value,document.getElementById('comp').value,document.getElementById('mamp').value,document.getElementById('pro').value);" class="btn btn-primary">Gravar</button>
-                    </div>
-                  </div>
+                      </div>
                 </div>
               </div>
-          </form>
+           </div>
+          <div class="row">
+              <div class="col-lg-12">
+                  <!--formulário-->  
+                  <form name="form_ponto" id="form_ponto" style="display:none">
+                    <div class="card">
+                      <div class="card-body">
+                        <div class="box-body">
+                          <div class="form-group">
+                            <label for="ponto">Número do Ponto</label>
+                            <input type="text" class="form-control" id="ponto" placeholder="Digite o Número do ponto">
+                          </div>
+                          <div class="form-group">
+                            <label for="end">Endereço</label>
+                            <textarea class="form-control" id="end"rows="3" placeholder="Digite o endereço" ></textarea>
+                          </div>
+                          <div class="form-group">
+                            <label for="comp">Complemento</label>
+                            <input type="text" class="form-control" id="comp" placeholder="Digite o complemento">
+                          </div>
+                          <div class="form-group">
+                          <label for="mamp">Responsável</label>
+                            `<div class="row">
+                              <div class="col-sm-2">
+                              <input type="text" size="10" class="form-control" id="mamp" placeholder="MAMP/Matrícula" v-model="object.mamp" >
+                              </div>
+                              <div class="col-sm-10">
+                              <input type="text" size="10" class="form-control" id="pro" placeholder="Nome" v-model="object.promotor">
+                              </div>
+                            </div>`
+                          </div>
+                          <div class="form-group">                                                                
+                            <button type="button" onclick="javascript:incluirDados(document.getElementById('ponto').value,document.getElementById('end').value,document.getElementById('comp').value,document.getElementById('mamp').value,document.getElementById('pro').value);" class="btn btn-primary">Gravar</button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                </form>
+              </div>
+            </div>
           <!--fim formulário-->
           <!-- inicio Tabela-->
             <div class="card">
                 <div class="card-body">
-                    <table id="tb_proc" class="table table-bordered table-hover">
-                        <tr>
-                            <td colspan="6">
-                                <div class="form-group">
-                                  <label for="opePesquisa">Operação</label>
-                                    <select onChange="javascript:operacao();" id="opePesquisa" class="form-control select2 select2-hidden-accessible" style="width: 100%;" tabindex="-1" aria-hidden="true">
-                                      <option >selecione</option>
-                                      <option value="1">Operação Valquíria</option>
-                                      <option value="2">Operação Coiote</option>
-                                      <option value="3">Operação Mel Ruim</option>
-                                    </select>  
-                                </div>
-                            </td>
-                        </tr>  
+                    <table id="tb_ponto" class="table table-bordered table-hover">
                     <thead id="thead_1">
                         <tr>                       
                             <th style="border-right-style:hidden">Nr ponto</th>                       
@@ -227,7 +263,7 @@ include($path_menu."include/modal.php");
                             <th style="border-right-style:hidden">Responsável</th> 
                             <th>
                               <div class="float-right">
-                                  <a href="#" onclick="javascript:mostrar(document.getElementById('form_proc').style.display);">
+                                  <a href="#" onclick="document.getElementById('form_ponto').style.display='block';">
                                     <i class="fa fas fa-plus-circle fa-2x" style="font-size:28px"></i>
                                   </a>
                               </div>
@@ -316,7 +352,7 @@ include($path_menu."include/modal.php");
                           <td style="border-right-style:hidden">Residência alvo 03</td>
                           <td style="border-right-style:hidden">198.654-2 - Ten Carlos</td>
                           <td ><div class="float-right">
-                          <a href="#" data-toggle="modal" data-target="#modal-lg"><i class="fa fa-users"></i></a>
+                          <a href="#" data-toggle="modal" data-target="#modal-lg"><i class="fa fa-users"></i></a>&nbsp;&nbsp;&nbsp;
                           <a href="#" onclick="this.parentNode.parentNode.parentNode.style.display = 'none'"><i class="fa fa-minus-circle" style="font-size:28px;color:red"></i></a></div></td>
                         </tr>
 

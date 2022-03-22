@@ -18,8 +18,8 @@ $path_menu="../";
   <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
   <!-- Theme style -->
   <link rel="stylesheet" href="<?php echo($path_page)?>dist/css/adminlte.min.css">
-  
   <script>
+    var operacao="";
     function mostrar(estilo){
     if(estilo=='none'){
       document.getElementById('form_proc').style.display="block";
@@ -27,9 +27,7 @@ $path_menu="../";
       document.getElementById('form_proc').style.display="none";
     }
   }
-  </script>
-  <script>
-  function incluirDados(proc,fase,oper,rat,mamp,pro){
+  function incluirDados(mamp,nome,ponto){
     let table = document.getElementById('tb_proc');
     let thead = document.getElementById('thead_1');
     let tbody = document.getElementById('tbody_1');
@@ -39,30 +37,34 @@ $path_menu="../";
     let row_data = document.createElement('td');
     let row_data_1 = document.createElement('td');
     let row_data_2 = document.createElement('td');
-    let row_data_3 = document.createElement('td');
-    let row_data_4 = document.createElement('td');
-    let row_data_5 = document.createElement('td');
     let row_link = document.createElement('td');
-    row_data.innerHTML = proc;
-    row_data_1.innerHTML = fase;
-    row_data_2.innerHTML = oper;
-    row_data_3.innerHTML = rat;
-    row_data_4.innerHTML = mamp+" - "+pro;
-
+    row_data.innerHTML = operacao;
+    row_data_1.innerHTML = ponto;
+    row_data_2.innerHTML = mamp+" - "+nome;
     conteudo = "<div class='float-right'><a href='#' ";
     conteudo = conteudo + " onclick=\"this.parentNode.parentNode.parentNode.style.display = 'none'\">"
     conteudo = conteudo + "<i class='fa fa-minus-circle' style='font-size:28px;color:red'></i></a>";
- 
+    console.log(conteudo);
     row_link.innerHTML = conteudo;
     row.appendChild(row_data);
     row.appendChild(row_data_1);
     row.appendChild(row_data_2);
-    row.appendChild(row_data_3);
-    row.appendChild(row_data_4);
     row.appendChild(row_link);
     tbody.appendChild(row);
-    document.getElementById('form_proc').style.display='none';
-  }
+    document.getElementById('form_proc').style.display='none'; 
+  };
+  function mudaCombo(obj){
+    var value = obj.options[obj.selectedIndex].value;
+    if(value==1|value==2|value==3){
+      document.getElementById('tb_partic').style.display="block";
+      if(value==1){operacao="Operação Valquíria"};
+      if(value==2){operacao="Operação falcão"};
+      if(value==3){operacao="Operação Mel Amargo"};
+      document.getElementById("op01").value=operacao;
+      document.getElementById("op02").value=operacao;
+      document.getElementById("op03").value=operacao;
+    }
+  };
   </script>
 </head>
 <!--
@@ -75,11 +77,12 @@ $path_menu="../";
   * sidebar-mini
 -->
 <body class="hold-transition sidebar-mini">
-<div id="app">
 <div class="wrapper">
-<?php include($path_menu)."include/notificacoes.php"?>
+  <?php include($path_menu)."include/notificacoes.php"?>
+  <!-- /.navbar -->
+
   <!-- Main Sidebar Container -->
-<?php include($path_menu."include/menu.php")?>
+  <?php include($path_menu."include/menu.php")?>
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
@@ -87,7 +90,7 @@ $path_menu="../";
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0">Lançar operação</h1>
+            <h1 class="m-0">Pessoas Presente na abordagem</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
@@ -98,126 +101,102 @@ $path_menu="../";
         </div><!-- /.row -->
       </div><!-- /.container-fluid -->
     </div>
-    <!-- /.content-header -->
-
-    <!-- Main content -->
-    <div class="content">
-      <div class="container-fluid">
-        <div class="row">
-          <div class="col-lg-12">
-                <!--formulário-->  
-              <form name="form_proc" id="form_proc" style="display:none">
-              <div class="card">
+          <!--PESQUISA-->
+          <div class="card">
                 <div class="card-body">
                   <div class="box-body">
                   <div class="form-group">
-                      <label for="responsavel">Procedimentos</label>
-                      <select id="proc" class="form-control select2 select2-hidden-accessible" style="width: 100%;" data-select2-id="1" tabindex="-1" aria-hidden="true">
-                        <option selected="selected" data-select2-id="3">selecione</option>
-                        <option value="PIC">PIC	2021-34529	Belo Horizonte	29675 - Dr. Rodrigo	Investigação de crimes contra a ordem econômica...</option>
-                        <option value="PAAF">PAAF	2022-11378	Belo Horizonte	29345 - Dr. Mauro	Investigação de Organizacão criminosa que atua com caixa-níquel</option>
-                        <option value="IP">PAAF	2022-11378	Belo Horizonte	29345 - Dr. Antônio	Investigação de Organizacão criminosa Tráfico de Drogas</option>
-                      </select>  
-                    </div>
+                        <label for="responsavel">Operação</label>
+                        <select  onchange="mudaCombo(this)"id="ope" class="form-control select2 select2-hidden-accessible" style="width: 100%;" data-select2-id="1" tabindex="-1" aria-hidden="true">
+                          <option selected="selected" data-select2-id="3">selecione</option>
+                          <option value="1">Operação Valquíria</option>
+                          <option value="2">Operação falcão</option>
+                          <option value="3">Operação Mel Amargo</option>
+                        </select>  
+                  </div>
+                 <div class="card-body" id="cardPonto" style="display:none">
+                    <h5 class="card-title"><div id='nrPonto'></div></h5>
+                    <p class="card-text" id="text"></p>
+                  </div>
+                </div>
+                </div>
+              </div>
+              <!--FIM PESQUISA-->
+    <!-- Main content -->
+    <div class="content ">
+      <div class="container-fluid bg-light">
+        <div class="row">
+          <div class="col-lg-12">
+          <!--formulário-->  
+          <form name="form_proc" id="form_proc" style="display:none">
+              <div class="card">
+                <div class="card-body" id="form_ponto" >
+                  <div class="box-body">
                     <div class="form-group">
-                      <label for="exampleInputPassword1">Fase</label>
-                      <input type="text" class="form-control" id="fase" placeholder="Digite o Número da Fase">
-                    </div>
-                    <div class="form-group">
-                      <label for="exampleInputPassword1">Nome da operação</label>
-                      <input type="text" class="form-control" id="oper" placeholder="Digite o Nome da Operação">
-                    </div>
-                    <div class="form-group">
-                      <label for="exampleInputPassword1">RAT/BOS</label>
-                      <input type="text" class="form-control" id="rat" placeholder="Digite o RAT ou BOS">
-                    </div>
-                    <div class="form-group">
-                    <label for="exampleInputPassword1">Responsável</label>
                       <div class="row">
-                        <div class="col-sm-2">
-                        <input type="text" size="10" class="form-control" id="mamp" placeholder="MAMP/Matrícula" v-model="object.mamp" >
+                        <div class="col-lg-2">
+                          <label for="mamp">MAMP/Matrícula</label>
+                          <input type="text" class="form-control" id="mamp" placeholder="Digite o MAMP o Matrícula">
                         </div>
-                        <div class="col-sm-10">
-                        <input type="text" size="10" class="form-control" id="pro" placeholder="Nome" v-model="object.promotor">
+                        <div class="col-lg-8">
+                          <label for="nome">Nome</label>
+                          <input type="text" class="form-control" id="nome" placeholder="Digite o nome do participante">
+                        </div>
+                        <div class="col-lg-2">
+                          <label for="ponto">Ponto</label>
+                          <input type="text" class="form-control" id="ponto" placeholder="Informe o ponto">
                         </div>
                       </div>
                     </div>
                     <div class="form-group">
-                       <button type="button" onclick="javascript:incluirDados(document.getElementById('proc').value,document.getElementById('fase').value,document.getElementById('oper').value,document.getElementById('rat').value,document.getElementById('mamp').value,document.getElementById('pro').value);" class="btn btn-primary">Gravar</button>
+                       <button type="button" onclick="javascript:incluirDados(document.getElementById('mamp').value,document.getElementById('nome').value,document.getElementById('ponto').value)" class="btn btn-primary">Gravar</button>
                     </div>
                   </div>
                 </div>
               </div>
           </form>
           <!--fim formulário-->
-          <!-- inicio Tabela-->
-            <div class="card">
-                <div class="card-body">
-                    <table id="tb_proc" class="table table-bordered table-hover">
-                      <thead id="thead_1">
+          <!--Tablela-->
+  
+          <div class="card" style="display:none" id="tb_partic">
+            <div class="card-body">
+                  <table  class="table table-bordered table-hover" id="tb_proc">
+                    <thead id="thead_1">
                       <tr>
-                        <th style="border-right-style:hidden">Procedimento  </th>                       
-                        <th style="border-right-style:hidden">Fase</th>                       
-                        <th style="border-right-style:hidden">Nome da operação</th> 
-                        <th style="border-right-style:hidden">RAT/BOS</th>                      
-                        <th style="border-right-style:hidden">Responsável</th> 
-                        <th><div class="float-right">
-                              <a href="#" onclick="javascript:mostrar(document.getElementById('form_proc').style.display);">
-                                <i class="fa fas fa-plus-circle fa-2x" style="font-size:28px"></i>
-                              </a>
-                            </div>
-                        </th>
+                        <th>Operação</th><th>Ponto</th><th>Nome</th><th></th>
+                          <div class="float-right"><a href="javascript:mostrar(document.getElementById('form_proc').style.display);"><i class="fa fas fa-plus-circle fa-2x" style="font-size:28px"></i></a></div>
+                        </th>                                                                                                                                     
                       </tr>
-                      </thead>
+                    </thead>
                       <tbody id="tbody_1">
-                        <tr>
-                          <td style="border-right-style:hidden">PIC	2021-34529	- Dr. Sandro - Crimes contra a ordem econômica</td>
-                          <td style="border-right-style:hidden">01</td>
-                          <td style="border-right-style:hidden">Operação Coiote</td>
-                          <td style="border-right-style:hidden">-</td>
-                          <td style="border-right-style:hidden">8785 - Dr. Cleverson</td></td>
-                          <td ><div class="float-right"><a href="#" onclick="this.parentNode.parentNode.parentNode.style.display = 'none'"><i class="fa fa-minus-circle" style="font-size:28px;color:red"></i></a></div></td>
-                        </tr>
-                        <tr>
-                          <td style="border-right-style:hidden">PAAF 2022-11378	- Dr. Valdir - Caixa-níquel</td>
-                          <td style="border-right-style:hidden">04  </td>
-                          <td style="border-right-style:hidden">Operação Bicho da Seda</td>
-                          <td style="border-right-style:hidden">-</td>
-                          <td style="border-right-style:hidden">1096 - Dr. Salmo</td></td>
-                          <td ><div class="float-right"><a href="#" onclick="this.parentNode.parentNode.parentNode.style.display = 'none'"><i class="fa fa-minus-circle" style="font-size:28px;color:red"></i></a></div></td>
-                        </tr>
+                        <tr><td><input type="text" id="op01" style="border: 0 none;"></td><td style="border-right-style:hidden">Ponto 01 </td><td style="border-right-style:hidden">Maria Antonieta de Carvalho - RG 03.456.789  </td><td><div class="float-right"><a href="#" onclick="this.parentNode.parentNode.parentNode.style.display = 'none'"><i class="fa fa-minus-circle" style="font-size:28px;color:red"></i></a></div></td></tr>
+                        <tr><td><input type="text" id="op02" style="border: 0 none;"></td><td style="border-right-style:hidden">Ponto 02 </td><td style="border-right-style:hidden">Carlos Albert Souza - CPF 765.123.769-78 </td><td><div class="float-right"><a href="#" onclick="this.parentNode.parentNode.parentNode.style.display = 'none'"><i class="fa fa-minus-circle" style="font-size:28px;color:red"></i></a></div></td></tr>
+                        <tr><td><input type="text" id="op03" style="border: 0 none;"></td><td style="border-right-style:hidden">Ponto 03 </td><td style="border-right-style:hidden">Wlavir de Azevedo  - RG M4.234.567 </td><td><div class="float-right"><a href="#" onclick="this.parentNode.parentNode.parentNode.style.display = 'none'"><i class="fa fa-minus-circle" style="font-size:28px;color:red"></i></a></div></td></tr>
                       </tbody>
-                    </table>
-                  </div>
-              </div>
+          <!--fim tabela-->
+                  </table>
+            </div>
           </div>
-          <!-- fim Tabela-->
+            <!-- fim col-lg-12 -->
+          </div>
+          <!-- row -->
          </div>
-        <!-- /.row -->
+        <!-- content fluid -->
+        </div>
+      <!-- content -->
       </div>
-      <!-- /.container-fluid -->
-    </div>
-    <!-- /.content -->
-  </div>
-  <!-- /.content-wrapper -->
-
-  <!-- Control Sidebar -->
-  <aside class="control-sidebar control-sidebar-dark">
-    <!-- Control sidebar content goes here -->
-  </aside>
-  <!-- /.control-sidebar -->
-
+    <!-- /.content-wrapper -->
+</div>
   <!-- Main Footer -->
   <footer class="main-footer">
-    <strong>Copyright &copy; 2014-2021 <a href="https://adminlte.io">AdminLTE.io</a>.</strong>
-    All rights reserved.
+    <strong>Copyright &copy; 2022 <a href="http://cadeiaCustodia.mp.br">Cadeia Custódia</a>.</strong>
+    
     <div class="float-right d-none d-sm-inline-block">
-      <b>Version</b> 3.2.0
+      <b>Versão</b> 1.0
     </div>
   </footer>
+   <!-- fim  wrapper -->
 </div>
-<!-- ./wrapper -->
-
 <!-- REQUIRED SCRIPTS -->
 
 <!-- jQuery -->
@@ -233,8 +212,5 @@ $path_menu="../";
 <script src="../../dist/js/demo.js"></script>
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 <script src="../../dist/js/pages/dashboard3.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-
-</div>
 </body>
 </html>
