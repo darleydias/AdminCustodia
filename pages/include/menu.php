@@ -47,15 +47,21 @@
               <li class="nav-item">
                   <a href="<?php echo($path_page)?>pages/transacionais/relatorio.php" class="nav-link">
                     <i class="far fa-circle text-info"></i>
+                    <p>Banco evidências</p>
+                  </a>
+              </li>
+              <li class="nav-item">
+                  <a href="<?php echo($path_page)?>pages/transacionais/relatorioMovimentacoes.php" class="nav-link">
+                    <i class="far fa-circle text-info"></i>
                     <p>Movimentações</p>
                   </a>
               </li>
               <li class="nav-item">
-                  <a href="<?php echo($path_page)?>pages/transacionais/ponto.php" class="nav-link">
-                    <i class="far fa-circle text-info"></i>
-                    <p>Estatísticas</p>
-                  </a>
-              </li>
+                  <a href="<?php echo($path_page)?>pages/transacionais/timeline.php" class="nav-link">
+                      <i class="far fa-circle text-info"></i>
+                      <p>Ciclo de vida</p>
+                    </a>
+                </li>
             </ul>
           </li>
           <!--Inicio lançamentos-->
@@ -118,31 +124,7 @@
                 </li>
             </ul>
           </li>
-          <!--Movimentacao-->
-          <li class="nav-item menu-open">
-            <a href="#" class="nav-link active" style="background-color: #808080;">
-              <i class="nav-icon fas fa-edit"></i>
-              <p>
-                Movimentação
-                <i class="right fas fa-angle-left"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-                <li class="nav-item">
-                <a href="<?php echo($path_page)?>pages/transacionais/movimentacao.php" class="nav-link">
-                      <i class="far fa-circle text-info"></i>
-                      <p>Movimentar item</p>
-                    </a>
-                  </li>
-                <li class="nav-item">
-                  <a href="<?php echo($path_page)?>pages/transacionais/timeline.php" class="nav-link">
-                      <i class="far fa-circle text-info"></i>
-                      <p>Ciclo de vida da evidência</p>
-                    </a>
-                </li>
-                
-            </ul>
-          </li>
+          
             <!--Inicio seçao cadastro-->
             <li class="nav-item menu-open">
             <a href="#" class="nav-link active" style="background-color: #808080;">

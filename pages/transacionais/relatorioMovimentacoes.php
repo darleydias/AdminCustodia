@@ -159,7 +159,7 @@ opacity: 1 ;
             <!--FILTROS-->
             <div class="collapse" id="collapseExample">
                   <div class="row">
-                      <div class="col-sm-6">
+                      <div class="col-sm-12">
                       <div class="card" style="margin-top: 30px;margin-left: 20px;">
                         <div class="card-body">
                           <div class="box-body">    
@@ -167,38 +167,11 @@ opacity: 1 ;
                                 <label for="procedimento">Procedimento</label>
                                 <input  type="text" class="form-control" id="procedimento" placeholder="Digite o procedimento">
                             </div>
-                            <div class="form-group">
-                                <label for="setor">Unidade apoiada</label>
-                                <select  onchange="mudaCombo(this)"id="setor" class="form-control select2 select2-hidden-accessible" style="width: 100%;" data-select2-id="1" tabindex="-1" aria-hidden="true">
-                                  <option selected="selected" data-select2-id="3">selecione</option>
-                                  <option value="1">GAECO CENTRAL</option>
-                                  <option value="2">CAOET</option>
-                                  <option value="3">CEAT</option>
-                                  <option value="3">GCOC-R11 (Montes Claros/MG)</option>
-                                </select>  
-                            </div>
+                      
                             <div class="form-group">
                               <label for="setor" id="alvo">Alvo</label>
                               <input type="text" class="form-control" id="alvo" placeholder="Digite o audio">
                             </div>
-                            <div class="form-group">
-                              <label for="setor" id="CMT">CMT Gru PM</label>
-                              <input  type="text" class="form-control" id="CMT" placeholder="Identificador da evidência">
-                            </div>
-                            <div class="form-group">
-                            <button class="btn btn-primary" style="visibility:hidden">
-                              Pesquisar
-                            </button>
-                            </div>
-                          </div><!--fim card box-->
-                        </div><!--fim card body-->
-                      </div><!--fim card-->
-         
-                      </div>
-                      <div class="col-sm-6">
-                      <div class="card" style="margin-top: 30px;margin-left: 20px;">
-                        <div class="card-body">
-                          <div class="box-body">    
                             <div class="form-group">
                                 <label for="operacao">Operação</label>
                                 <select  onchange="funcao(this)" id="operacao" class="form-control select2 select2-hidden-accessible" style="width: 100%;" data-select2-id="1" tabindex="-1" aria-hidden="true">
@@ -209,7 +182,7 @@ opacity: 1 ;
                                 </select>  
                             </div>
                             <div class="form-group">
-                                <label for="setor">Setor Atual</label>
+                                <label for="setor">Setor responsável pela operação</label>
                                 <select  onchange="mudaCombo(this)"id="setor" class="form-control select2 select2-hidden-accessible" style="width: 100%;" data-select2-id="1" tabindex="-1" aria-hidden="true">
                                   <option selected="selected" data-select2-id="3">selecione</option>
                                   <option value="1">GAECO CENTRAL</option>
@@ -226,9 +199,11 @@ opacity: 1 ;
                               <input  type="text" class="form-control" id="evi" placeholder="Identificador da evidência">
                             </div>
                             <div class="form-group">
-                            <button class="btn btn-primary">
-                              Pesquisar
-                            </button>
+                            <form action="relatorioMovimentacoesDetalhe.php">
+                              <button type="submit" class="btn btn-primary">
+                                Pesquisar
+                              </button>
+                            </form>
                             </div>
                           </div><!--fim card box-->
                         </div><!--fim card body-->
@@ -362,17 +337,11 @@ opacity: 1 ;
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
   <script>
-  function escondeId(obj){
-    let teste=obj.value.trim();
-    if(teste=='2376544679-09'){
-      document.getElementById('linha2').style.display='none';
-      document.getElementById('linha3').style.display='none';
-      document.getElementById('linha4').style.display='none';
+  function escondeId(){
       document.getElementById('linha5').style.display='none';
       document.getElementById('linha6').style.display='none';
       document.getElementById('linha7').style.display='none';
       document.getElementById('linha8').style.display='none';
-    }
   }
   </script>
         <!-- Main Footer -->
