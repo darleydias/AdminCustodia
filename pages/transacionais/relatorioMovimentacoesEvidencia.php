@@ -28,11 +28,59 @@ background-color: rgba(0,0,0,0.1);
 transition: 0.2s;
 opacity: 1 ;
 }
-
 </style>
+
 </head>
 <body class="hold-transition sidebar-mini">
 <div class="wrapper">
+
+<!--MODAL OBSERVAÇÕES-->
+
+<div class="modal fade" id="modal-lgObs">
+<div class="modal-dialog modal-lg">
+<div class="modal-content">
+ <div class="modal-header">
+<h4 class="modal-title">Detalhes na movimentação</h4>
+<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+<span aria-hidden="true">×</span>
+</button>
+</div>
+<div class="modal-body">
+<p>
+<div class="row">
+  <div class="col-sm-12">
+      <div class="form-group">
+          <label for="obs">Observação</label>
+          <textarea class="form-control" id="obs"rows="3" placeholder="" ></textarea>
+          
+      </div>  
+      <br/>
+      <!--arquivos-->
+      
+      <br/>
+      </div>
+      <div class="form-group" style="display:none" id="arquivo2">
+          <label for="exampleFormControlFile1">Anexos</label>
+          <input type="file" class="form-control-file" id="exampleFormControlFile1">
+      </div><br/>
+      </div><div class="form-group" style="display:none" id="arquivo3">
+          <label for="exampleFormControlFile1">Anexos</label>
+          <input type="file" class="form-control-file" id="exampleFormControlFile1">
+        </div>
+  </div>
+</div>
+<!--fim arquivos-->
+</p>
+</div>
+<div class="modal-footer justify-content-between">
+</div>
+</div>
+</div>
+</div>
+<!--fim modal observações-->
+
+
+
 <!--MODAL-->
 <div class="modal fade" id="modal-lg">
 <div class="modal-dialog modal-lg">
@@ -92,7 +140,6 @@ opacity: 1 ;
                           </div>
                         </tr> 
                         <tr><td colspan="3"><a href="#" class="text-decoration-none" onclick="document.getElementById('recebedor').style.display='block'"><p id="alertaArea" name="alertaArea" style="display:none;">(6752) Maria Cláudia Agustin</p></a></td></tr>
-
                         <tr id="linha1">
                               <td style="border-right-style:hidden"  colspan="3">
                                 <div class="form-group">
@@ -101,20 +148,50 @@ opacity: 1 ;
                                 </div>  
                             </td>
                         </tr>
+                        <tr id="linha1">
+                             <td style="border-right-style:hidden"  colspan="3">
+                                <div class="form-group">
+                                    <label for="exampleFormControlFile1">Anexos</label>
+                                    <input type="file" class="form-control-file" id="exampleFormControlFile1">
+                                </div>
+                            </td>
+                        </tr>
+
               </tbody>
             </table>
             <div style="margin-top:20px;margin-bottom:20px">
-              Nr.: (108.908-2) 2 Sgt Carlos Magno&nbsp;&nbsp;&nbsp;
-              <div class="btn btn-primary">Assinar</div>
-            </div>
-            
-              <div id="recebedor" name="recebedor" style="display:none;">
+                  Nr.: (108.908-2) 2 Sgt Carlos Magno&nbsp;&nbsp;&nbsp;
+                  <div onclick="javascript:botao=1" class="btn btn-primary" data-toggle='modal' data-target='#modal-lg2'>Assinar</div>
+                
+                <div id="assinado" style="display:none;">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-qr-code" viewBox="0 0 16 16">
+                        <path d="M2 2h2v2H2V2Z"></path>
+                        <path d="M6 0v6H0V0h6ZM5 1H1v4h4V1ZM4 12H2v2h2v-2Z"></path>
+                        <path d="M6 10v6H0v-6h6Zm-5 1v4h4v-4H1Zm11-9h2v2h-2V2Z"></path>
+                        <path d="M10 0v6h6V0h-6Zm5 1v4h-4V1h4ZM8 1V0h1v2H8v2H7V1h1Zm0 5V4h1v2H8ZM6 8V7h1V6h1v2h1V7h5v1h-4v1H7V8H6Zm0 0v1H2V8H1v1H0V7h3v1h3Zm10 1h-1V7h1v2Zm-1 0h-1v2h2v-1h-1V9Zm-4 0h2v1h-1v1h-1V9Zm2 3v-1h-1v1h-1v1H9v1h3v-2h1Zm0 0h3v1h-2v1h-1v-2Zm-4-1v1h1v-2H7v1h2Z"></path>
+                        <path d="M7 12h1v3h4v1H7v-4Zm9 2v2h-3v-1h2v-1h1Z"></path>
+                      </svg>&nbsp;&nbsp;
+                      Assinado em 12/04/2022 10:40
+                </div>
+          </div>
+
+              <div id="recebedor" style="display:none;" name="recebedor" style="display:none;">
                 (6752) Maria Cláudia Agustin&nbsp;&nbsp;&nbsp;
-                <div class="btn btn-primary">
+                <div onclick="javascript:botao=2"class="btn btn-primary" data-toggle='modal' data-target='#modal-lg2'>
                   Receber
                 </div>
               </div>
-            
+            <div id="recebido" style="display:none;">
+          
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-qr-code" viewBox="0 0 16 16">
+              <path d="M2 2h2v2H2V2Z"></path>
+              <path d="M6 0v6H0V0h6ZM5 1H1v4h4V1ZM4 12H2v2h2v-2Z"></path>
+              <path d="M6 10v6H0v-6h6Zm-5 1v4h4v-4H1Zm11-9h2v2h-2V2Z"></path>
+              <path d="M10 0v6h6V0h-6Zm5 1v4h-4V1h4ZM8 1V0h1v2H8v2H7V1h1Zm0 5V4h1v2H8ZM6 8V7h1V6h1v2h1V7h5v1h-4v1H7V8H6Zm0 0v1H2V8H1v1H0V7h3v1h3Zm10 1h-1V7h1v2Zm-1 0h-1v2h2v-1h-1V9Zm-4 0h2v1h-1v1h-1V9Zm2 3v-1h-1v1h-1v1H9v1h3v-2h1Zm0 0h3v1h-2v1h-1v-2Zm-4-1v1h1v-2H7v1h2Z"></path>
+              <path d="M7 12h1v3h4v1H7v-4Zm9 2v2h-3v-1h2v-1h1Z"></path>
+             </svg>&nbsp;&nbsp;
+          Assinado em 12/04/2022 10:45
+          </div>
 
         </div>
       </div>
@@ -128,6 +205,41 @@ opacity: 1 ;
 </div>
 </div>
 <!--fim modal-->
+
+<!--MODAL-->
+<div class="modal fade" id="modal-lg2">
+<div class="modal-dialog modal-lg">
+<div class="modal-content">
+ <div class="modal-header">
+<h4 class="modal-title">Assinar</h4>
+<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+<span aria-hidden="true">×</span>
+</button>
+</div>
+<div class="modal-body">
+<p>
+<div class="row">
+  <div class="col-sm-2">
+</div>
+<container>
+    <td width="80%" style="border-right-style:hidden">
+    <label for="token">Token</label>
+    <input type="text" class="form-control" id="token" placeholder="Digite token" >
+    </td>
+    <br>
+    <button onclick="javascript:assinar(botao)" type="button" class="btn btn-primary" data-dismiss="modal" aria-label="Close">Enviar</button>
+</container>
+</div>
+</p>
+</div>
+<div class="modal-footer justify-content-between">
+</div>
+</div>
+</div>
+</div>
+<!--fim modal-->
+
+
 <!--MODAL-->
     <?php include($path_menu."include/notificacoes.php");?>
       <!-- Main Sidebar Container -->
@@ -176,7 +288,7 @@ opacity: 1 ;
             <div class="col-xs-2" style="width: 6%;">766768</div> 
             <div class="col-xs-2" style="width: 10%;">10/02/2021 06:00</div>
             <div class="col-xs-2" style="width: 12%;">Ponto 09</div>
-            <div class="col-xs-2" style="width: 24%;">Nr.: 108.908-2 Sgt Carlos Magno -<br>
+            <div class="col-xs-2" style="width: 22%;">Nr.: 108.908-2 Sgt Carlos Magno -<br>
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-qr-code" viewBox="0 0 16 16">
               <path d="M2 2h2v2H2V2Z"/>
               <path d="M6 0v6H0V0h6ZM5 1H1v4h4V1ZM4 12H2v2h2v-2Z"/>
@@ -187,7 +299,7 @@ opacity: 1 ;
             Assinado digitalmente em 10/02/2021 05:58</div>
             <div class="col-xs-2" style="width: 10%;">10/02/2021 11 :00</div>
             <div class="col-xs-2" style="width: 12%;">Secretaria GAECO</div>
-            <div class="col-xs-2" style="width: 24%;">Marcia Faria (MG 234.345.2) -<br>
+            <div class="col-xs-2" style="width: 22%;">Marcia Faria (MG 234.345.2) -<br>
              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-qr-code" viewBox="0 0 16 16">
               <path d="M2 2h2v2H2V2Z"/>
               <path d="M6 0v6H0V0h6ZM5 1H1v4h4V1ZM4 12H2v2h2v-2Z"/>
@@ -195,7 +307,12 @@ opacity: 1 ;
               <path d="M10 0v6h6V0h-6Zm5 1v4h-4V1h4ZM8 1V0h1v2H8v2H7V1h1Zm0 5V4h1v2H8ZM6 8V7h1V6h1v2h1V7h5v1h-4v1H7V8H6Zm0 0v1H2V8H1v1H0V7h3v1h3Zm10 1h-1V7h1v2Zm-1 0h-1v2h2v-1h-1V9Zm-4 0h2v1h-1v1h-1V9Zm2 3v-1h-1v1h-1v1H9v1h3v-2h1Zm0 0h3v1h-2v1h-1v-2Zm-4-1v1h1v-2H7v1h2Z"/>
               <path d="M7 12h1v3h4v1H7v-4Zm9 2v2h-3v-1h2v-1h1Z"/>
              </svg>
-            Assinado digitalmente em 10/02/2021 07:16</div>
+            Assinado digitalmente em 10/02/2021 07:16
+          </div>
+          <div style="width: 2%;" >
+          <i class="fa fa-info" style="font-size:36px" data-toggle='modal' data-target='#modal-lgObs'></i>
+
+          </div>
           </div>
           <!--LINHA 2-->
           <div onclick="mostrarTabela()" class="row" id="linha1" style="border-bottom: solid; border-bottom-width: 0.1px; margin-right: 5px; padding: 15px;'">
@@ -203,7 +320,7 @@ opacity: 1 ;
             <div class="col-xs-2" style="width: 6%;">766768</div> 
             <div class="col-xs-2" style="width: 10%;">12/02/2021 10:25</div>
             <div class="col-xs-2" style="width: 12%;">Secretaria GAECO</div>
-            <div class="col-xs-2" style="width: 24%;">Marcia Faria (MG 234.345.2)  -<br>
+            <div class="col-xs-2" style="width: 22%;">Marcia Faria (MG 234.345.2)  -<br>
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-qr-code" viewBox="0 0 16 16">
               <path d="M2 2h2v2H2V2Z"/>
               <path d="M6 0v6H0V0h6ZM5 1H1v4h4V1ZM4 12H2v2h2v-2Z"/>
@@ -214,7 +331,7 @@ opacity: 1 ;
             Assinado digitalmente em 10/02/2021 05:58</div>
             <div class="col-xs-2" style="width: 10%;">12/02/2021 10:25</div>
             <div class="col-xs-2" style="width: 12%;">Central de custódia GAECO</div>
-            <div class="col-xs-2" style="width: 24%;">Nr.: 098.543-7 3 Sgt Fafael Gartner<br>
+            <div class="col-xs-2" style="width: 22%;">Nr.: 098.543-7 3 Sgt Fafael Gartner<br>
              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-qr-code" viewBox="0 0 16 16">
               <path d="M2 2h2v2H2V2Z"/>
               <path d="M6 0v6H0V0h6ZM5 1H1v4h4V1ZM4 12H2v2h2v-2Z"/>
@@ -222,7 +339,13 @@ opacity: 1 ;
               <path d="M10 0v6h6V0h-6Zm5 1v4h-4V1h4ZM8 1V0h1v2H8v2H7V1h1Zm0 5V4h1v2H8ZM6 8V7h1V6h1v2h1V7h5v1h-4v1H7V8H6Zm0 0v1H2V8H1v1H0V7h3v1h3Zm10 1h-1V7h1v2Zm-1 0h-1v2h2v-1h-1V9Zm-4 0h2v1h-1v1h-1V9Zm2 3v-1h-1v1h-1v1H9v1h3v-2h1Zm0 0h3v1h-2v1h-1v-2Zm-4-1v1h1v-2H7v1h2Z"/>
               <path d="M7 12h1v3h4v1H7v-4Zm9 2v2h-3v-1h2v-1h1Z"/>
              </svg>
-            Assinado digitalmente em 12/02/2021 10:30</div>
+            Assinado digitalmente em 12/02/2021 10:30
+          </div>
+          <div style="width: 2%;" >
+
+
+          </div>
+
           </div>
           <!--linha3-->
           <div onclick="mostrarTabela()" class="row" id="linha1" style="border-bottom: solid; border-bottom-width: 0.1px; margin-right: 5px; padding: 15px;'">
@@ -230,10 +353,10 @@ opacity: 1 ;
             <div class="col-xs-2" style="width: 6%;">766768</div> 
             <div class="col-xs-2" style="width: 10%;">16/02/2021 09:40</div>
             <div class="col-xs-2" style="width: 12%;">Central de custódia GAECO</div>
-            <div class="col-xs-2" style="width: 24%;">Nr.: 098.543-7 3 Sgt Fafael Gartner -<br><p style="color:red">Não assinado</p></div>
+            <div class="col-xs-2" style="width: 22%;">Nr.: 098.543-7 3 Sgt Fafael Gartner -<br><p style="color:red">Não assinado</p></div>
             <div class="col-xs-2" style="width: 10%;">16/02/2021 09:40</div>
             <div class="col-xs-2" style="width: 12%;">Analista GAECO</div>
-            <div class="col-xs-2" style="width: 24%;">Nr.: 135.555-9 Cabo Wanderley Miranda -<br>
+            <div class="col-xs-2" style="width: 22%;">Nr.: 135.555-9 Cabo Wanderley Miranda -<br>
              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-qr-code" viewBox="0 0 16 16">
               <path d="M2 2h2v2H2V2Z"/>
               <path d="M6 0v6H0V0h6ZM5 1H1v4h4V1ZM4 12H2v2h2v-2Z"/>
@@ -241,7 +364,12 @@ opacity: 1 ;
               <path d="M10 0v6h6V0h-6Zm5 1v4h-4V1h4ZM8 1V0h1v2H8v2H7V1h1Zm0 5V4h1v2H8ZM6 8V7h1V6h1v2h1V7h5v1h-4v1H7V8H6Zm0 0v1H2V8H1v1H0V7h3v1h3Zm10 1h-1V7h1v2Zm-1 0h-1v2h2v-1h-1V9Zm-4 0h2v1h-1v1h-1V9Zm2 3v-1h-1v1h-1v1H9v1h3v-2h1Zm0 0h3v1h-2v1h-1v-2Zm-4-1v1h1v-2H7v1h2Z"/>
               <path d="M7 12h1v3h4v1H7v-4Zm9 2v2h-3v-1h2v-1h1Z"/>
              </svg>
-            Assinado digitalmente em 16/02/2021 09:54</div>
+            Assinado digitalmente em 16/02/2021 09:54
+          </div>
+            <div style="width: 2%;" >
+
+
+            </div>
           </div>
           <!--Quata linha-->
           <div onclick="mostrarTabela()" class="row" id="linha1" style="border-bottom: solid; border-bottom-width: 0.1px; margin-right: 5px; padding: 15px;'">
@@ -249,7 +377,7 @@ opacity: 1 ;
             <div class="col-xs-2" style="width: 6%;">811193</div> 
             <div class="col-xs-2" style="width: 10%;">23/04/2021 16:09</div>
             <div class="col-xs-2" style="width: 12%;">Analista do GAECO</div>
-            <div class="col-xs-2" style="width: 24%;">Nr.: 108.908-2 Sgt Carlos Magno -<br>
+            <div class="col-xs-2" style="width: 22%;">Nr.: 108.908-2 Sgt Carlos Magno -<br>
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-qr-code" viewBox="0 0 16 16">
               <path d="M2 2h2v2H2V2Z"/>
               <path d="M6 0v6H0V0h6ZM5 1H1v4h4V1ZM4 12H2v2h2v-2Z"/>
@@ -260,7 +388,7 @@ opacity: 1 ;
             Assinado digitalmente em 23/04/2021 16:18</div>
             <div class="col-xs-2" style="width: 10%;">23/04/2021 16:09</div>
             <div class="col-xs-2" style="width: 12%;">Central de cutõdia GAECO</div>
-            <div class="col-xs-2" style="width: 24%;">Nr.: 098.543-7 3 Sgt Fafael Gartner -<br>
+            <div class="col-xs-2" style="width: 22%;">Nr.: 098.543-7 3 Sgt Fafael Gartner -<br>
              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-qr-code" viewBox="0 0 16 16">
               <path d="M2 2h2v2H2V2Z"/>
               <path d="M6 0v6H0V0h6ZM5 1H1v4h4V1ZM4 12H2v2h2v-2Z"/>
@@ -268,7 +396,12 @@ opacity: 1 ;
               <path d="M10 0v6h6V0h-6Zm5 1v4h-4V1h4ZM8 1V0h1v2H8v2H7V1h1Zm0 5V4h1v2H8ZM6 8V7h1V6h1v2h1V7h5v1h-4v1H7V8H6Zm0 0v1H2V8H1v1H0V7h3v1h3Zm10 1h-1V7h1v2Zm-1 0h-1v2h2v-1h-1V9Zm-4 0h2v1h-1v1h-1V9Zm2 3v-1h-1v1h-1v1H9v1h3v-2h1Zm0 0h3v1h-2v1h-1v-2Zm-4-1v1h1v-2H7v1h2Z"/>
               <path d="M7 12h1v3h4v1H7v-4Zm9 2v2h-3v-1h2v-1h1Z"/>
              </svg>
-            Assinado digitalmente em 23/04/2021 16:20</div>
+            Assinado digitalmente em 23/04/2021 16:20
+          </div>
+            <div style="width: 2%;" >
+
+
+            </div>
           </div>
           
      </div>
@@ -280,9 +413,20 @@ opacity: 1 ;
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
   <script>
+    botao=1;
   function mostrarTabela(){
       document.getElementById('tabela').style.display='none';
       document.getElementById('tabela2').style.display='block';
+  }
+  function assinar(id){
+    document.getElementById('token').value='';
+    if(id==1){
+      document.getElementById('assinado').style.display='block';
+    }
+    if(id==2){
+      document.getElementById('recebido').style.display='block';
+    }
+    
   }
   </script>
         <!-- Main Footer -->
