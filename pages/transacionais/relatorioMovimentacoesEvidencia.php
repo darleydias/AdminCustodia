@@ -35,47 +35,37 @@ opacity: 1 ;
 <div class="wrapper">
 
 <!--MODAL OBSERVAÇÕES-->
-
 <div class="modal fade" id="modal-lgObs">
-<div class="modal-dialog modal-lg">
-<div class="modal-content">
- <div class="modal-header">
-<h4 class="modal-title">Detalhes na movimentação</h4>
-<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-<span aria-hidden="true">×</span>
-</button>
-</div>
-<div class="modal-body">
-<p>
-<div class="row">
-  <div class="col-sm-12">
-      <div class="form-group">
-          <label for="obs">Observação</label>
-          <textarea class="form-control" id="obs"rows="3" placeholder="" ></textarea>
-          
-      </div>  
-      <br/>
-      <!--arquivos-->
-      
-      <br/>
-      </div>
-      <div class="form-group" style="display:none" id="arquivo2">
-          <label for="exampleFormControlFile1">Anexos</label>
-          <input type="file" class="form-control-file" id="exampleFormControlFile1">
-      </div><br/>
-      </div><div class="form-group" style="display:none" id="arquivo3">
-          <label for="exampleFormControlFile1">Anexos</label>
-          <input type="file" class="form-control-file" id="exampleFormControlFile1">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+              <h4 class="modal-title">Detalhes na movimentação</h4>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">×</span>
+              </button>
+          </div>
+            <div class="modal-body">
+                <p>
+                <div class="row">
+                  <div class="col-sm-12">
+                      <div class="form-group">
+                          <label for="obs">Observação</label>
+                          <textarea class="form-control" id="obs"rows="3" placeholder=""  readonly>Foi feita a Extração Via CELLEBRITE de dados num total de 783 GB. e Feita a análise de dados conforma relatório de extração. 
+                          </textarea>
+                      </div>  
+                      <br/>
+                      <!--arquivos-->
+                      <div>
+                        <a href="../../dist/arquivos/relatorioExtracao.txt" target="_top">relatorioExtracao</a>
+                      </div>
+                  </div>
+                </div>
+                <!--fim arquivos-->
+                </p>
+            </div>
+          <div class="modal-footer justify-content-between"></div>
         </div>
-  </div>
-</div>
-<!--fim arquivos-->
-</p>
-</div>
-<div class="modal-footer justify-content-between">
-</div>
-</div>
-</div>
+    </div>
 </div>
 <!--fim modal observações-->
 
@@ -310,8 +300,7 @@ opacity: 1 ;
             Assinado digitalmente em 10/02/2021 07:16
           </div>
           <div style="width: 2%;" >
-          <i class="fa fa-info" style="font-size:36px" data-toggle='modal' data-target='#modal-lgObs'></i>
-
+             <i class="fa fa-info" style="font-size:36px" data-toggle='modal' data-target='#modal-lgObs'></i>
           </div>
           </div>
           <!--LINHA 2-->
@@ -342,8 +331,7 @@ opacity: 1 ;
             Assinado digitalmente em 12/02/2021 10:30
           </div>
           <div style="width: 2%;" >
-
-
+            <i class="fa fa-info" style="font-size:36px" data-toggle='modal' data-target='#modal-lgObs'></i>
           </div>
 
           </div>
@@ -367,8 +355,7 @@ opacity: 1 ;
             Assinado digitalmente em 16/02/2021 09:54
           </div>
             <div style="width: 2%;" >
-
-
+              <i class="fa fa-info" style="font-size:36px" data-toggle='modal' data-target='#modal-lgObs'></i>
             </div>
           </div>
           <!--Quata linha-->
@@ -399,8 +386,7 @@ opacity: 1 ;
             Assinado digitalmente em 23/04/2021 16:20
           </div>
             <div style="width: 2%;" >
-
-
+              <i class="fa fa-info" style="font-size:36px" data-toggle='modal' data-target='#modal-lgObs'></i>
             </div>
           </div>
           
