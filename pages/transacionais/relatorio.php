@@ -381,7 +381,7 @@ opacity: 1 ;
           <strong>Copyright &copy; 2014-2021 <a href="https://adminlte.io">AdminLTE.io</a>.</strong>
           All rights reserved. 2376544679-09
           <div class="float-right d-none d-sm-inline-block">
-            <b>Version</b> 3.2.0
+            <b>Version</b> 3.2.0 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
           </div>
         </footer>
   </body>
