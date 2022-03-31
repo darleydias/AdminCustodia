@@ -5,8 +5,8 @@ $path_page="../../";
 $path_menu="../";
 ?>
 <html lang="pt_BR">
-<head>
-  <meta charset="utf-8">
+<head profile="http://gmpg.org/xfn/11">
+  <meta http-equiv="Content-Type" content="text/html; charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Controle da Cadeia de Custódia</title>
   <!-- Font Awesome Icons -->
@@ -19,53 +19,22 @@ $path_menu="../";
   <link href="https://cdn.jsdelivr.net/npm/@mdi/font@6.x/css/materialdesignicons.min.css" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.css" />
+  <link rel="stylesheet" type="text/css" href="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.css" />    
+  <script type='text/javascript' src='//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js'></script>     
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
-  
-<style type="text/css">
-#linha1:hover,#linha2:hover,#linha3:hover,#linha4:hover,#linha5:hover,#linha6:hover,#linha7:hover,#linha8:hover
-{ 
-z-index:-1;
-background-color: rgba(0,0,0,0.1); 
-transition: 0.2s;
-opacity: 1 ;
-}
-
-</style>
+  <script src="https://unpkg.com/elm-pep@1.0.6/dist/elm-pep.js"></script>
+    <!-- The lines below are only needed for old environments like Internet Explorer and Android 4.x -->
+    <script src="https://cdn.polyfill.io/v3/polyfill.min.js?features=fetch,requestAnimationFrame,Element.prototype.classList,TextDecoder"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/core-js/3.18.3/minified.js"></script>
+    <style>
+      .map {
+        width: 100%;
+        height:400px;
+      }
+    </style>
 </head>
 <body class="hold-transition sidebar-mini">
-<script>
-  function funcao(e){
-   var result = e.options[e.selectedIndex].value;
-   result = result.trim()
-
-   switch (result) {
-      case "1":
-        document.getElementById('linha4').style.display='none';
-        document.getElementById('linha5').style.display='none';
-        document.getElementById('linha6').style.display='none';
-        document.getElementById('linha7').style.display='none';
-        document.getElementById('linha8').style.display='none';
-        break;
-      case "2":
-        document.getElementById('linha1').style.display='none';
-        document.getElementById('linha2').style.display='none';
-        document.getElementById('linha3').style.display='none';
-        document.getElementById('linha7').style.display='none';
-        document.getElementById('linha8').style.display='none';
-        break;
-      case "3":
-        document.getElementById('linha1').style.display='none';
-          document.getElementById('linha2').style.display='none';
-          document.getElementById('linha4').style.display='none';
-          document.getElementById('linha5').style.display='none';
-          document.getElementById('linha6').style.display='none';
-        break;
-      default:
-    console.log(`Sorry, we are out of ${expr}.`);
-    }
-  }
-
-</script>
 <div class="wrapper">
 <!--MODAL-->
 <div class="modal fade" id="modal-lg">
@@ -239,11 +208,16 @@ opacity: 1 ;
                   </div>  <!--row-->
             </div>  <!--fim colapse-->
 <!-- INICIO GRID -->
+
 <div class="container-fluid" style="margin-left: 20px;">
 <h1>Leaflet Example</h1>
+      
       <p>Here's a map of the countries I've either lived in or travelled through for a month or more.
       
       <div id="map" style="height: 440px; border: 1px solid #AAA;"></div>
+ 
+      <script type='text/javascript' src='maps/markers.json'></script>
+      <script type='text/javascript' src='maps/leaf-demo.js'></script>
 </div>
   <!-- FIM GRID -->
     <!--PAGINAÇAO-->
@@ -270,9 +244,10 @@ opacity: 1 ;
   </div>
 </div>
     
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
   <script>
   function escondeId(obj){
     let teste=obj.value.trim();
