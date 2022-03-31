@@ -160,6 +160,80 @@ $path_menu="../";
 </div>
 </div>
 <!--fim modal-->
+<!--MODAL RECON-->
+<div class="modal fade" id="modal-lgRecon">
+<div class="modal-dialog modal-lg">
+<div class="modal-content">
+  <div class="modal-header">
+    <h4 class="modal-title" id="endereco"></h4>
+  </div>
+  <div class="modal-body">
+    <p>
+    <div class="row">
+          <div class="col-sm-12">
+            <div class="form-group">
+                  <label for="ccc">Orientações para o RECON</label>
+                  <textarea class="form-control" id="end"rows="6" placeholder="Definição de equipe do Centro de Comando e Controle" >Realizar localização exata do alvo(endereço completo)
+    - Elaborar Mapas, Fotos ou Croquis, citando Pontos de referência e Características do Alvo
+    * Descrição generalizada
+    - É Região Industrial
+    - É Área Rural
+    * Verificar Atividades desenvolvidas, dias da semana e horários. 
+                  </textarea>
+            </div>
+      </div>
+    </div>
+      <div class="row">
+        <div class="col-sm-12">
+            <form name="form_modal" id="form_modal" style="display:none">
+                    <div class="card">
+                      <div class="card-body">
+                        <div class="box-body">
+                          <div class="form-group">
+                            <div class="row">
+                              <div class="col-lg-2">
+                                <label for="mampModal">MAMP/Matrícula</label>
+                                <input type="text" class="form-control" id="mampModal" placeholder="Digite o MAMP o Matrícula">
+                              </div>
+                              <div class="col-lg-8">
+                                <label for="nomeModal">Nome</label>
+                                <input type="text" class="form-control" id="nomeModal" placeholder="Digite o nome do participante">
+                              </div>
+                            </div>
+                          </div>
+                          <div class="form-group">
+                              <button type="button" onclick="javascript:incluirDadosModal(document.getElementById('mampModal').value,document.getElementById('nomeModal').value)" class="btn btn-primary">Gravar</button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+            </form>
+         </div>
+      </div>
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="card">
+        <div class="card-body">
+          <table id="tb_modal" name="tb_modal" class="table table-bordered table-hover">
+              <thead id="theadM_1"><th style="border-right-style:hidden">MAMP/Matrícula</th><th style="border-right-style:hidden">Nome</th><th><a href="#" style="text-align:right" onclick="document.getElementById('form_modal').style.display='block';"><i class="fa fas fa-plus-circle fa-2x" style="font-size:28px"></i></a></th></thead>
+              <tbody id="tbodyM_1">
+              <tr><td style="border-right-style:hidden">63876</td><td style="border-right-style:hidden">Dr. Lindomar Silva</td><td><a href="#" style="text-align:right" onclick="this.parentNode.parentNode.style.display = 'none'"><i class="fa fa-minus-circle" style="font-size:28px;color:red;border-right-style:hidden"></i></a></td></tr>
+              <tr><td style="border-right-style:hidden">123.564-3</td><td style="border-right-style:hidden">1Sgt Antonieta</td><td><a href="#" style="text-align:right" onclick="this.parentNode.parentNode.style.display = 'none'"><i class="fa fa-minus-circle" style="font-size:28px;color:red;border-right-style:hidden"></i></a></td></tr>
+</tbody>
+            </table>
+          </div>
+      </div>
+    </div>
+  </div>
+</p>
+</div>
+<div class="modal-footer justify-content-between">
+<button type="button" class="btn btn-primary" data-dismiss="modal" aria-label="Close">Sair</button>
+</div>
+</div>
+</div>
+</div>
+<!--fim modal-->
 
 <?php 
 include($path_menu."include/modal.php");
@@ -278,7 +352,8 @@ include($path_menu."include/modal.php");
                           <td style="border-right-style:hidden">8785 - Dr. Cleverson</td>
                           <td >
                             <div class="float-right">
-                            <a href="#" data-toggle="modal" data-target="#modal-lg"><i class="fa fa-users"></i></a>&nbsp;&nbsp;&nbsp;
+                              <a href="#" onclick="setaDadosModal('Equipe para realização de RECON no ponto 01<br>em Rua Macedônia, 345 - Bairro Canadá - Padra Azul - MG ')" data-toggle="modal" data-target="#modal-lgRecon"><i class="fa fa-user-secret"></i></a>&nbsp;&nbsp;&nbsp;
+                              <a href="#" data-toggle="modal" data-target="#modal-lg"><i class="fa fa-users"></i></a>&nbsp;&nbsp;&nbsp;
                               <a href="#" onclick="this.parentNode.parentNode.parentNode.style.display = 'none'">
                                 <i class="fa fa-minus-circle" style="font-size:28px;color:red"></i>
                               </a>
@@ -292,6 +367,7 @@ include($path_menu."include/modal.php");
                           <td style="border-right-style:hidden">8785 - Dr. Cleverson</td>
                           <td >
                             <div class="float-right">
+                            <a href="#" onclick="setaDadosModal('Equipe para realização de RECON no ponto 02<br>em Rua Cadesbarneia, 477 - Bairro Belém - Pedra Azul - MG ')" data-toggle="modal" data-target="#modal-lgRecon"><i class="fa fa-user-secret"></i></a>&nbsp;&nbsp;&nbsp;
                             <a href="#" data-toggle="modal" data-target="#modal-lg"><i class="fa fa-users"></i></a>&nbsp;&nbsp;&nbsp;
                               <a href="#" onclick="this.parentNode.parentNode.parentNode.style.display = 'none'">
                                 <i class="fa fa-minus-circle" style="font-size:28px;color:red">
@@ -305,7 +381,9 @@ include($path_menu."include/modal.php");
                           <td style="border-right-style:hidden">Rua Indumeia, 2.345 - Bairro Cafarnaum - Pedra Azul - MG </td>
                           <td style="border-right-style:hidden">Escritório no segundo Andar</td>
                           <td style="border-right-style:hidden">8785 - Dr. Cleverson</td>
-                          <td ><div class="float-right">
+                          <td >
+                            <div class="float-right">
+                          <a href="#" onclick="setaDadosModal('Equipe para realização de RECON no ponto 02<br>em Rua Indumeia, 2.345 - Bairro Cafarnaum - Pedra Azul - MG ')" data-toggle="modal" data-target="#modal-lgRecon"><i class="fa fa-user-secret"></i></a>&nbsp;&nbsp;&nbsp;
                           <a href="#" data-toggle="modal" data-target="#modal-lg"><i class="fa fa-users"></i></a> &nbsp;&nbsp;&nbsp;
                           <a href="#" onclick="this.parentNode.parentNode.parentNode.style.display = 'none'"><i class="fa fa-minus-circle" style="font-size:28px;color:red"></i></a></div></td>
                         </tr>
@@ -316,6 +394,7 @@ include($path_menu."include/modal.php");
                           <td style="border-right-style:hidden">099.256-0 - Cabo Cleines Marcio</td>
                           <td >
                             <div class="float-right">
+                            <a href="#" onclick="setaDadosModal('Equipe para realização de RECON no ponto 02<br>em Av Galileia, 453 - Bairro Decápolis - Pedra Azul - MG ')" data-toggle="modal" data-target="#modal-lgRecon"><i class="fa fa-user-secret"></i></a>&nbsp;&nbsp;&nbsp;
                             <a href="#" data-toggle="modal" data-target="#modal-lg"><i class="fa fa-users"></i></a>&nbsp;&nbsp;&nbsp;
                             <a href="#" onclick="this.parentNode.parentNode.parentNode.style.display = 'none'"><i class="fa fa-minus-circle" style="font-size:28px;color:red"></i></a></div></td>
                         </tr>
@@ -325,6 +404,7 @@ include($path_menu."include/modal.php");
                           <td style="border-right-style:hidden">Escritório no segundo Andar</td>
                           <td style="border-right-style:hidden">8785 - Dr. Cleverson</td>
                           <td ><div class="float-right">
+                          <a href="#" onclick="setaDadosModal('Equipe para realização de RECON no ponto 03<br>em Rua Massada, 222 - Bairro Jordão - Pedra Azul - MG')" data-toggle="modal" data-target="#modal-lgRecon"><i class="fa fa-user-secret"></i></a>&nbsp;&nbsp;&nbsp;
                           <a href="#" data-toggle="modal" data-target="#modal-lg"><i class="fa fa-users"></i></a>&nbsp;&nbsp;&nbsp;
                           <a href="#" onclick="this.parentNode.parentNode.parentNode.style.display = 'none'"><i class="fa fa-minus-circle" style="font-size:28px;color:red"></i></a></div></td>
                         </tr>
@@ -334,6 +414,7 @@ include($path_menu."include/modal.php");
                           <td style="border-right-style:hidden">Residência quarto escritório</td>
                           <td style="border-right-style:hidden">098.236-6 - SubTen Anderson Silva</td>
                           <td ><div class="float-right">
+                          <a href="#" onclick="setaDadosModal('Equipe para realização de RECON no ponto 01<br>em Av Telaviv , 01 - Bairro Caná - Padra Azul - MG ')" data-toggle="modal" data-target="#modal-lgRecon"><i class="fa fa-user-secret"></i></a>&nbsp;&nbsp;&nbsp;
                           <a href="#" data-toggle="modal" data-target="#modal-lg"><i class="fa fa-users"></i></a>&nbsp;&nbsp;&nbsp;
                           <a href="#" onclick="this.parentNode.parentNode.parentNode.style.display = 'none'"><i class="fa fa-minus-circle" style="font-size:28px;color:red"></i></a></div></td>
                         </tr>
@@ -343,6 +424,7 @@ include($path_menu."include/modal.php");
                           <td style="border-right-style:hidden">Escritório</td>
                           <td style="border-right-style:hidden">122.987-4 - Cap Vittor Celante</td>
                           <td ><div class="float-right">
+                          <a href="#" onclick="setaDadosModal('Equipe para realização de RECON no ponto 02<br>em Rua Gaza, 121 - Bairro Galileia - Pedra Azul - MG ')" data-toggle="modal" data-target="#modal-lgRecon"><i class="fa fa-user-secret"></i></a>&nbsp;&nbsp;&nbsp;
                           <a href="#" data-toggle="modal" data-target="#modal-lg"><i class="fa fa-users"></i></a>&nbsp;&nbsp;&nbsp;
                           <a href="#" onclick="this.parentNode.parentNode.parentNode.style.display = 'none'"><i class="fa fa-minus-circle" style="font-size:28px;color:red"></i></a></div></td>
                         </tr>
@@ -352,6 +434,7 @@ include($path_menu."include/modal.php");
                           <td style="border-right-style:hidden">Residência alvo 03</td>
                           <td style="border-right-style:hidden">198.654-2 - Ten Carlos</td>
                           <td ><div class="float-right">
+                          <a href="#" onclick="setaDadosModal('Equipe para realização de RECON no ponto 03<br>em Rua Chipre, 2.345 - Bairro Caifa - Padra Azul - MG ')" data-toggle="modal" data-target="#modal-lgRecon"><i class="fa fa-user-secret"></i></a>&nbsp;&nbsp;&nbsp;
                           <a href="#" data-toggle="modal" data-target="#modal-lg"><i class="fa fa-users"></i></a>&nbsp;&nbsp;&nbsp;
                           <a href="#" onclick="this.parentNode.parentNode.parentNode.style.display = 'none'"><i class="fa fa-minus-circle" style="font-size:28px;color:red"></i></a></div></td>
                         </tr>
@@ -404,7 +487,11 @@ include($path_menu."include/modal.php");
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 <script src="../../dist/js/pages/dashboard3.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-
+<script>
+function setaDadosModal(valor) {
+    document.getElementById('endereco').innerHTML = valor;
+}
+</script>
 </div>
 
 

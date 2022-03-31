@@ -75,6 +75,128 @@ $path_menu="../";
   * sidebar-mini
 -->
 <body class="hold-transition sidebar-mini">
+<p>
+<!--MODAL ORIENTAÇÕES-->
+<div class="modal fade" id="modal-lgOrientacoes">
+<div class="modal-dialog modal-lg">
+<div class="modal-content">
+  <div class="modal-header">
+    <h4 class="modal-title" id="endereco">Centro de Comando e Controle - Orientações</h4>
+  </div>
+  <div class="modal-body">
+          <!--FORMULÀRIO-->
+        <div class="row">
+          <div class="col-sm-12">
+          <div class="form-group">
+              <label for="ccc">Equipe do CCC</label>
+              <textarea class="form-control" id="end"rows="3" placeholder="Definição de equipe do Centro de Comando e Controle" ></textarea>
+          </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-sm-12">
+          <div class="form-group">
+            <label for="comp">Contato</label>
+            <input type="text" class="form-control" id="comp" placeholder="Canal de comunicação">
+        </div>
+        </div>
+        </div>
+
+        <div class="row">
+          <div class="col-sm-12">
+        <div class="form-group">
+              <label for="ccc">Sintese do caso</label>
+              <textarea class="form-control" id="end"rows="7" placeholder="Definição de equipe do Centro de Comando e Controle" >GERAL - investigação para apurar os crim.es deORGANIZAÇÃO CRIMINOSA,  LAVAGEM DE DINHEIRO, FALSIDADE IDEOLÓGICA e eventuais outros CRIMES TRIBUTÁRIOS praticados pelo GRUPO XPTO. O GRUPO XPTO se organiza em fragmentação de empresas promoção e vendas dos produtos de Faxina. O GRUPO XPTO através da empresa 3CPO é devedor de aproximadamente R$ 5 bilhões ao Estado de Minas Gerais devido a prática de saídas desacobertadas.</textarea>
+        </div>
+        </div>
+        </div>
+
+
+        <div class="row">
+          <div class="col-sm-12">
+        <div class="form-group">
+            <label for="comp">Objetivo Geral</label>
+            <input type="text" class="form-control" id="comp" placeholder="" value="Cumprimento de Mandado e Busca e apreensão">
+        </div>
+        </div>
+        </div>
+
+
+
+        <div class="row">
+          <div class="col-sm-12">
+        <div class="form-group">
+              <label for="ccc">Objeto Específico</label>
+              <textarea class="form-control" id="end"rows="20" placeholder="Definição de equipe do Centro de Comando e Controle" >DOCUMENTOS SOMENTE DAS PESSOAS DE INTERESSE DA INVESTIGAÇÃO
+Documentos, anotações, agendas, cadernos e manuscritos que tenham alguma relação com as pessoas físicas e jurídicas de interesse para a investigação,
+Documentos bancários e fiscais (cheques, comprovantes de transferências, extratos bancários, boletos, conta telefônica, recibos, faturas de cartão de crédito, etc.),
+Procurações (públicas ou particulares) que tenham relação com as pessoas físicas e jurídicas de interesse da investigação,
+Documentos relacionados à propriedade de imóveis, veículos (instrumentos particulares de compra e venda, escrituras públicas, procurações para venda,
+Certidões de registro de imóveis, contratos de aluguel, contratos de arrendamento, contas de energia elétrica e água, certificados de registros de veículos), 
+Documentos relacionados a remessa de valores para o exterior o Correspondências físicas e eletrônicas impressas, entre pessoas de interesse,
+Documentos relacionados a controles de pagamentos, recebimentos e pedidos de compras e vendas de mercadorias,
+Documentos que indiquem controle financeiro das operações praticadas na empresa e pelas pessoas de interesse,
+Documentos e estudos sobre planejamento tributário do grupo econômico e blindagem patrimonial, 
+Documentos vinculados a criação, manutenção e gestão de holdings. 
+              </textarea>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+          <div class="col-sm-12">
+        <div class="form-group">
+              <label for="ccc">Evidências DIgitais</label>
+              <textarea class="form-control" id="end"rows="3" placeholder="Definição de equipe do Centro de Comando e Controle" >DOCUMENTOS SOMENTE DAS PESSOAS DE INTERESSE DA INVESTIGAÇÃO
+Dispositivos de armazenamentpo de arquivos digitais (pen drive, CD, DVD, HD) utilizados no alvo.
+Equipamentos eletrônicos (Computador, notebook,tablet,etc) utilizados no alvo
+              </textarea>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+          <div class="col-sm-12">
+        <div class="form-group">
+              <label for="ccc">Bens e valores</label>
+              <textarea class="form-control" id="end"rows="3" placeholder="Definição de equipe do Centro de Comando e Controle" >DOCUMENTOS SOMENTE DAS PESSOAS DE INTERESSE DA INVESTIGAÇÃO
+Dinheiro em moeda nacional /extrangeira (acima de R$ 10.000,00 contactar coordenação).
+Elementos realaçionado a criptoativos. (hard Wallets,cold wallet,seeds,etc)
+              </textarea>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+          <div class="col-sm-12">
+        <div class="form-group">
+              <label for="ccc">O que não buscar</label>
+              <textarea class="form-control" id="end"rows="3" placeholder="Definição de equipe do Centro de Comando e Controle" >Documentos fiscais emitidos pela empresa. 
+              </textarea>
+        </div>
+      </div>
+    </div>
+
+
+
+  </div>
+    
+    <!--FIM FORMULÀRIO-->
+
+    <div class="modal-footer justify-content-between">
+  <button type="button" class="btn btn-primary" data-dismiss="modal" aria-label="Close">Salvar</button>
+</div>
+</p>
+</div>
+
+</div>
+</div>
+</div>
+
+<!-- FIM MODAL ORIENTAÇÕES-->
+
+
+
 <div id="app">
 <div class="wrapper">
 <?php include($path_menu)."include/notificacoes.php"?>
@@ -176,7 +298,16 @@ $path_menu="../";
                           <td style="border-right-style:hidden">Operação Coiote</td>
                           <td style="border-right-style:hidden">-</td>
                           <td style="border-right-style:hidden">8785 - Dr. Cleverson</td></td>
-                          <td ><div class="float-right"><a href="#" onclick="this.parentNode.parentNode.parentNode.style.display = 'none'"><i class="fa fa-minus-circle" style="font-size:28px;color:red"></i></a></div></td>
+                          <td >
+                            <div class="float-right">
+                              <a href="#" data-toggle="modal" data-target="#modal-lgOrientacoes">
+                                <i class="fa fa-tasks"></i>
+                              </a>&nbsp;&nbsp;&nbsp;
+                              <a href="#" onclick="this.parentNode.parentNode.parentNode.style.display = 'none'">
+                                <i class="fa fa-minus-circle" style="font-size:28px;color:red"></i>
+                              </a>
+                            </div>
+                          </td>
                         </tr>
                         <tr>
                           <td style="border-right-style:hidden">PAAF 2022-11378	- Dr. Valdir - Caixa-níquel</td>
@@ -184,7 +315,11 @@ $path_menu="../";
                           <td style="border-right-style:hidden">Operação Bicho da Seda</td>
                           <td style="border-right-style:hidden">-</td>
                           <td style="border-right-style:hidden">1096 - Dr. Salmo</td></td>
-                          <td ><div class="float-right"><a href="#" onclick="this.parentNode.parentNode.parentNode.style.display = 'none'"><i class="fa fa-minus-circle" style="font-size:28px;color:red"></i></a></div></td>
+                          <td ><div class="float-right">
+                          <a href="#" data-toggle="modal" data-target="#modal-lgOrientacoes">
+                                <i class="fa fa-tasks"></i>
+                              </a>&nbsp;&nbsp;&nbsp;  
+                          <a href="#" onclick="this.parentNode.parentNode.parentNode.style.display = 'none'"><i class="fa fa-minus-circle" style="font-size:28px;color:red"></i></a></div></td>
                         </tr>
                       </tbody>
                     </table>
