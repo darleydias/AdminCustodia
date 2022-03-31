@@ -19,7 +19,16 @@ $path_menu="../";
   <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
   <!-- Theme style -->
   <link rel="stylesheet" href="<?php echo($path_page)?>dist/css/adminlte.min.css">
-  
+  <style type="text/css">
+#linha1:hover,#linha2:hover,#linha3:hover,#linha4:hover,#linha5:hover,#linha6:hover,#linha7:hover,#linha8:hover
+{ 
+z-index:-1;
+background-color: rgba(0,0,0,0.1); 
+transition: 0.2s;
+opacity: 1 ;
+}
+
+</style>
   <script>
     var value;
     function mostrar(estilo){
@@ -114,11 +123,102 @@ $path_menu="../";
       document.getElementById('text').innerHTML=texto;
       document.getElementById('cardPonto').style.display="block";
     }
-  
+  function mostraPessoas(){
+    document.getElementById('labelpessoa').style.display="block";
+  }
+
+  function maisUmElemento(tarefa){
+    document.getElementById('tarefa').innerHTML=tarefa;
+    document.getElementById('itemTimeA').style.display='block';
+    document.getElementById('itemTimeB').style.display='block';
+    document.getElementById('primeiraSeta').style.display='none';
+  }
+
+
+
   </script>
 </head>
 
 <body class="hold-transition sidebar-mini">
+  <!--MODAL-->
+<div class="modal fade" id="modal-lgE">
+<div class="modal-dialog modal-lg">
+<div class="modal-content">
+ <div class="modal-header">
+<h4 class="modal-title">Encaminhamento</h4>
+<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+<span aria-hidden="true">×</span>
+</button>
+</div>
+<div class="modal-body">
+<p>
+<div class="row">
+  <div class="col-sm-2">
+  </div></div>
+  <form name="from_modal" id="form_proc" style="display:block">
+      <div class="card">
+        <div class="card-body">
+          <div class="box-body">
+          <table id="tb_modal" class="table table-bordered table-hover">
+              <tbody id="tbodyM_1">
+                      <label for="exampleInputPassword1">Responsável</label>
+                      <div class="row">
+                        <div class="col-sm-2">
+                        <input type="text" size="10" onblur="mostraPessoas();" class="form-control" id="mamp" placeholder="MAMP/Matrícula" v-model="object.mamp" >
+                        </div>
+                        <div class="col-sm-10">
+                        <input type="text" size="10" onblur="mostraPessoas();"class="form-control" id="pro" placeholder="Nome" v-model="object.promotor">
+                        </div>
+                      </div>
+                    </div>
+                    <br>
+                    <div id="labelpessoa" style="display:none;">
+                        <div class="row" onclick="document.getElementById('selecionada').style.display='block'" id="linha1" style="border-bottom: solid; border-bottom-width: 0.1px; margin-right: 5px; padding: 15px;'">
+                          <div class="col-xs-2" style="width: 20%;">MAMP: 67543</div>  
+                          <div class="col-xs-10" style="width: 80%;" id="nome1">Carlinda Paula Fontes</div>
+                        </div>
+                        <div class="row" onclick="document.getElementById('selecionada').style.display='block'" id="linha1" style="border-bottom: solid; border-bottom-width: 0.1px; margin-right: 5px; padding: 15px;'">
+                          <div class="col-xs-2" style="width: 20%;">132.458-9 </div>  
+                          <div class="col-xs-10" style="width: 80%;" id="nome2">Sgt Eder Valdomiro</div>
+                        </div>
+                    </div>
+                    <br>
+                    <div  id="selecionada" style="display:none;">
+                        <div class="row">
+                            <div class="col-sm-2">
+                            <label for="pro">Tarefa</label>
+                            </div>
+                            <div class="col-sm-10">
+                            <input type="text" size="10" class="form-control" id="tarefaTxt" placeholder="Defina a próxima Tarefa" v-model="object.promotor">
+                            </div>
+                        </div>
+                        <br>
+                        <div class="row">
+                            <div class="col-sm-2">
+                            <label for="pro">Digite o Token</label>
+                            </div>
+                            <div class="col-sm-10">
+                            <input type="text" size="10" onblur="mostraPessoas();"class="form-control" id="pro" placeholder="Digite o Token" v-model="object.promotor">
+                            </div>
+                        </div>
+                    </div>
+
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+  </form>
+</p>
+</div>
+<div class="modal-footer justify-content-between">
+<button type="button" onclick="maisUmElemento(document.getElementById('tarefaTxt').value)" class="btn btn-primary" data-dismiss="modal" aria-label="Close">Encaminhar</button>
+</div>
+</div>
+</div>
+</div>
+<!--fim modal-->
+
 <!--MODAL-->
 <div class="modal fade" id="modal-lg5">
 <div class="modal-dialog modal-lg">
@@ -367,7 +467,7 @@ $path_menu="../";
               <div>
                 <i class="fa fa-user-secret  bg-blue"></i>
                 <div class="timeline-item">
-                  <span class="time"><i class="fas fa-clock"></i> 05:50</span>
+                  <span class="time">Cap Marlon Reis &nbsp;&nbsp;<i class="fas fa-clock"></i> 05:50</span>
                   <h3 class="timeline-header"><a href="#">Apreensão da evidência</a> MPMG - GAECO</h3>
 
                   <div class="timeline-body">
@@ -388,8 +488,8 @@ $path_menu="../";
               <div>
                 <i class="fas fa-user bg-green"></i>
                 <div class="timeline-item">
-                  <span class="time"><i class="fas fa-clock"></i> 11:00</span>
-                  <h3 class="timeline-header no-border"><a href="#">Responsável pela apreensão</a>  Foram aprenedidos 7 evidências encaminhada em 1 volume. </h3>
+                  <span class="time">Cap Marlon Reis &nbsp;&nbsp;<i class="fas fa-clock"></i> 11:00</span>
+                  <h3 class="timeline-header no-border"><a href="#">Responsável pela apreensão</a>  Foram aprenedidos 7 evidências encaminhada em 7 volumes. </h3>
                 </div>
               </div>
               <!-- END timeline item -->
@@ -397,7 +497,7 @@ $path_menu="../";
               <div>
                 <i class="fas fa-comments bg-yellow"></i>
                 <div class="timeline-item">
-                  <span class="time"><i class="fas fa-clock"></i> 27 mins ago</span>
+                  <span class="time">Cap Marlon Reis &nbsp;&nbsp;<i class="fas fa-clock"></i> 27 mins ago</span>
                   <h3 class="timeline-header"><a href="#">Comadante da operação<o></o></a> Foram presos o Sr José Emanuel e sua esposa Carla Divina Emanuel</h3>
                   <div class="timeline-body">
                   Foi encerrada ocorrência no 53 DP com autuação em flagrante de ambos conduzidos <br>
@@ -419,7 +519,7 @@ $path_menu="../";
               <div>
                 <i class="fa fa-cogs bg-purple"></i>
                 <div class="timeline-item">
-                  <span class="time"><i class="fas fa-clock"></i> 09:30</span>
+                  <span class="time">MAMP 12657 - Carlos Antonio de Souza&nbsp;&nbsp;&nbsp;<i class="fas fa-clock"></i> 09:30</span>
                   <h3 class="timeline-header"><a href="#">Recebimento para extração</a></h3>
                   <div class="timeline-body">
                   Foi entregue com a etiqueta 876489, à CEAT. em 11/02/2022 12:30<br>
@@ -431,7 +531,7 @@ $path_menu="../";
               <div>
                 <i class="fas fa-user bg-green"></i>
                 <div class="timeline-item">
-                  <span class="time"><i class="fas fa-clock"></i> 11:00</span>
+                  <span class="time">MAMP 12657 - Carlos Antonio de Souza&nbsp;&nbsp;&nbsp;<i class="fas fa-clock"></i> 11:00</span>
                   <h3 class="timeline-header no-border"><a href="#">Armazenado na Central de custódia</a>  
                   Foi feito o deslacre pelo MAMP 265443 Marta Janaina Dias.<br>
                   11 de fev 2022 as 11:00<br>
@@ -442,7 +542,7 @@ $path_menu="../";
                 <div>
                   <i class="fas fa-user bg-green"></i>
                   <div class="timeline-item">
-                    <span class="time"><i class="fas fa-clock"></i> 11:00</span>
+                    <span class="time">MAMP 12657 - Carlos Antonio de Souza&nbsp;&nbsp;&nbsp;<i class="fas fa-clock"></i> 11:00</span>
                     <h3 class="timeline-header no-border"><a href="#">Em processo de extração e análise</a>  
                     Pego para extração e análise de dados.<br>
                     MAMP 67654 Marcilio Arlindo Carvalho<br>
@@ -451,17 +551,36 @@ $path_menu="../";
                   </h3>
                   </div>
                 </div>
-                <!-- END timeline item -->
-              <!-- timeline item -->
+                <!-- timeline item -->
 
               <div class="time-label">
                 <span class="bg-green">26 de abril de 2022</span>
+                <span class=""></span>
+                <span id="primeiraSeta" data-toggle="modal" data-target="#modal-lgE">
+                    <svg xmlns="http://www.w3.org/2000/svg" 
+                    width="16" 
+                    height="16" 
+                    fill="currentColor" 
+                    class="bi bi-arrow-return-right" 
+                    viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M1.5 1.5A.5.5 0 0 0 1 2v4.8a2.5 2.5 0 0 0 2.5 2.5h9.793l-3.347 3.346a.5.5 0 0 0 .708.708l4.2-4.2a.5.5 0 0 0 0-.708l-4-4a.5.5 0 0 0-.708.708L13.293 8.3H3.5A1.5 1.5 0 0 1 2 6.8V2a.5.5 0 0 0-.5-.5z"/>
+                  </svg>
+                </span>
+                <div class='float-right ' style="margin-right:20px">
+                  <a href="javascript:void(0);" onclick="document.getElementById('itemTimeC').style.display='block'">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" 
+                  class="bi bi-plus-circle" viewBox="0 0 16 16">
+                  <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                   <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
+                  </svg>
+                </a>
+                </div>
               </div>
               <div>
                 <i class="fa fa-cogs bg-purple"></i>
                 <div class="timeline-item">
-                  <span class="time"><i class="fas fa-clock"></i> 14 horas</span>
-                  <h3 class="timeline-header"><a href="#">Entrega de relatório e midias</a></h3>
+                  <span class="time"> MAMP 44567 - Ednaldo Bulhões&nbsp;&nbsp;&nbsp;<i class="fas fa-clock"></i> 14 horas</span>
+                  <h3 class="timeline-header"><a href="javascript:void(0);">Entrega de relatório e midias</a></h3>
                   <div class="timeline-body">
                   Foi feito novo lacre com a etiqueta 876570,<br>
                   Lacre anterior: 265443 enviado a Central de custódia. em 26/04/2022 12:30<br>
@@ -470,6 +589,52 @@ $path_menu="../";
                   </div>
                 </div>
               </div>
+              <div id="itemTimeC" style="display:none">
+                <i class="fa fa-cogs bg-purple"></i>
+                <div class="timeline-item">
+                  <span class="time">Carla Neiva Torres&nbsp;&nbsp;&nbsp;<i class="fas fa-clock"></i> 14 horas</span>
+                  <h3 class="timeline-header"><a href="javascript:void(0);"><div id="tarefa"></div></a></h3>
+                  <div class="timeline-body">
+                            <textarea class="form-control" id="end"rows="3" placeholder="descrição da tarefa" ></textarea>
+                  </div>
+                </div>
+              </div>
+              
+              <!-- END timeline item -->
+              <!-- timeline item -->
+
+              <div id="itemTimeA" class="time-label" style="display:none">
+                <span class="bg-green">01 de Maio de 2022</span>
+                <span class=""></span>
+                <span data-toggle="modal" data-target="#modal-lgE">
+                    <svg xmlns="http://www.w3.org/2000/svg" 
+                    width="16" 
+                    height="16" 
+                    fill="currentColor" 
+                    class="bi bi-arrow-return-right" 
+                    viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M1.5 1.5A.5.5 0 0 0 1 2v4.8a2.5 2.5 0 0 0 2.5 2.5h9.793l-3.347 3.346a.5.5 0 0 0 .708.708l4.2-4.2a.5.5 0 0 0 0-.708l-4-4a.5.5 0 0 0-.708.708L13.293 8.3H3.5A1.5 1.5 0 0 1 2 6.8V2a.5.5 0 0 0-.5-.5z"/>
+                  </svg>
+                </span>
+                <div class='float-right ' style="margin-right:20px">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" 
+                  class="bi bi-plus-circle" viewBox="0 0 16 16">
+                  <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                   <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
+                  </svg>
+                </div>
+              </div>
+              <div id="itemTimeB" style="display:none">
+                <i class="fa fa-cogs bg-purple"></i>
+                <div class="timeline-item">
+                  <span class="time">Carla Neiva Torres&nbsp;&nbsp;&nbsp;<i class="fas fa-clock"></i> 14 horas</span>
+                  <h3 class="timeline-header"><a href="javascript:void(0);"><div id="tarefa"></div></a></h3>
+                  <div class="timeline-body">
+                            <textarea class="form-control" id="end"rows="3" placeholder="descrição da tarefa" ></textarea>
+                  </div>
+                </div>
+              </div>
+              
               
               <!-- END timeline item -->
               <div>
@@ -486,20 +651,8 @@ $path_menu="../";
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
-
-  <footer class="main-footer">
-    <div class="float-right d-none d-sm-block">
-      <b>Version</b> 3.2.0
-    </div>
-    <strong>Copyright © 2014-2021 <a href="https://adminlte.io">AdminLTE.io</a>.</strong> All rights reserved.
-  </footer>
-
   <!-- Control Sidebar -->
-  <aside class="control-sidebar control-sidebar-dark" style="display: none;">
-    <!-- Control sidebar content goes here -->
-  <div class="p-3 control-sidebar-content" style=""><h5>Customize AdminLTE</h5><hr class="mb-2"><div class="mb-4"><input type="checkbox" value="1" class="mr-1"><span>Dark Mode</span></div><h6>Header Options</h6><div class="mb-1"><input type="checkbox" value="1" class="mr-1"><span>Fixed</span></div><div class="mb-1"><input type="checkbox" value="1" class="mr-1"><span>Dropdown Legacy Offset</span></div><div class="mb-4"><input type="checkbox" value="1" class="mr-1"><span>No border</span></div><h6>Sidebar Options</h6><div class="mb-1"><input type="checkbox" value="1" class="mr-1"><span>Collapsed</span></div><div class="mb-1"><input type="checkbox" value="1" class="mr-1"><span>Fixed</span></div><div class="mb-1"><input type="checkbox" value="1" checked="checked" class="mr-1"><span>Sidebar Mini</span></div><div class="mb-1"><input type="checkbox" value="1" class="mr-1"><span>Sidebar Mini MD</span></div><div class="mb-1"><input type="checkbox" value="1" class="mr-1"><span>Sidebar Mini XS</span></div><div class="mb-1"><input type="checkbox" value="1" class="mr-1"><span>Nav Flat Style</span></div><div class="mb-1"><input type="checkbox" value="1" class="mr-1"><span>Nav Legacy Style</span></div><div class="mb-1"><input type="checkbox" value="1" class="mr-1"><span>Nav Compact</span></div><div class="mb-1"><input type="checkbox" value="1" class="mr-1"><span>Nav Child Indent</span></div><div class="mb-1"><input type="checkbox" value="1" class="mr-1"><span>Nav Child Hide on Collapse</span></div><div class="mb-4"><input type="checkbox" value="1" class="mr-1"><span>Disable Hover/Focus Auto-Expand</span></div><h6>Footer Options</h6><div class="mb-4"><input type="checkbox" value="1" class="mr-1"><span>Fixed</span></div><h6>Small Text Options</h6><div class="mb-1"><input type="checkbox" value="1" class="mr-1"><span>Body</span></div><div class="mb-1"><input type="checkbox" value="1" class="mr-1"><span>Navbar</span></div><div class="mb-1"><input type="checkbox" value="1" class="mr-1"><span>Brand</span></div><div class="mb-1"><input type="checkbox" value="1" class="mr-1"><span>Sidebar Nav</span></div><div class="mb-4"><input type="checkbox" value="1" class="mr-1"><span>Footer</span></div><h6>Navbar Variants</h6><div class="d-flex"><select class="custom-select mb-3 text-light border-0 bg-white"><option class="bg-primary">Primary</option><option class="bg-secondary">Secondary</option><option class="bg-info">Info</option><option class="bg-success">Success</option><option class="bg-danger">Danger</option><option class="bg-indigo">Indigo</option><option class="bg-purple">Purple</option><option class="bg-pink">Pink</option><option class="bg-navy">Navy</option><option class="bg-lightblue">Lightblue</option><option class="bg-teal">Teal</option><option class="bg-cyan">Cyan</option><option class="bg-dark">Dark</option><option class="bg-gray-dark">Gray dark</option><option class="bg-gray">Gray</option><option class="bg-light">Light</option><option class="bg-warning">Warning</option><option class="bg-white">White</option><option class="bg-orange">Orange</option></select></div><h6>Accent Color Variants</h6><div class="d-flex"></div><select class="custom-select mb-3 border-0"><option>None Selected</option><option class="bg-primary">Primary</option><option class="bg-warning">Warning</option><option class="bg-info">Info</option><option class="bg-danger">Danger</option><option class="bg-success">Success</option><option class="bg-indigo">Indigo</option><option class="bg-lightblue">Lightblue</option><option class="bg-navy">Navy</option><option class="bg-purple">Purple</option><option class="bg-fuchsia">Fuchsia</option><option class="bg-pink">Pink</option><option class="bg-maroon">Maroon</option><option class="bg-orange">Orange</option><option class="bg-lime">Lime</option><option class="bg-teal">Teal</option><option class="bg-olive">Olive</option></select><h6>Dark Sidebar Variants</h6><div class="d-flex"></div><select class="custom-select mb-3 text-light border-0 bg-primary"><option>None Selected</option><option class="bg-primary">Primary</option><option class="bg-warning">Warning</option><option class="bg-info">Info</option><option class="bg-danger">Danger</option><option class="bg-success">Success</option><option class="bg-indigo">Indigo</option><option class="bg-lightblue">Lightblue</option><option class="bg-navy">Navy</option><option class="bg-purple">Purple</option><option class="bg-fuchsia">Fuchsia</option><option class="bg-pink">Pink</option><option class="bg-maroon">Maroon</option><option class="bg-orange">Orange</option><option class="bg-lime">Lime</option><option class="bg-teal">Teal</option><option class="bg-olive">Olive</option></select><h6>Light Sidebar Variants</h6><div class="d-flex"></div><select class="custom-select mb-3 border-0"><option>None Selected</option><option class="bg-primary">Primary</option><option class="bg-warning">Warning</option><option class="bg-info">Info</option><option class="bg-danger">Danger</option><option class="bg-success">Success</option><option class="bg-indigo">Indigo</option><option class="bg-lightblue">Lightblue</option><option class="bg-navy">Navy</option><option class="bg-purple">Purple</option><option class="bg-fuchsia">Fuchsia</option><option class="bg-pink">Pink</option><option class="bg-maroon">Maroon</option><option class="bg-orange">Orange</option><option class="bg-lime">Lime</option><option class="bg-teal">Teal</option><option class="bg-olive">Olive</option></select><h6>Brand Logo Variants</h6><div class="d-flex"></div><select class="custom-select mb-3 border-0"><option>None Selected</option><option class="bg-primary">Primary</option><option class="bg-secondary">Secondary</option><option class="bg-info">Info</option><option class="bg-success">Success</option><option class="bg-danger">Danger</option><option class="bg-indigo">Indigo</option><option class="bg-purple">Purple</option><option class="bg-pink">Pink</option><option class="bg-navy">Navy</option><option class="bg-lightblue">Lightblue</option><option class="bg-teal">Teal</option><option class="bg-cyan">Cyan</option><option class="bg-dark">Dark</option><option class="bg-gray-dark">Gray dark</option><option class="bg-gray">Gray</option><option class="bg-light">Light</option><option class="bg-warning">Warning</option><option class="bg-white">White</option><option class="bg-orange">Orange</option><a href="#">clear</a></select></div></aside>
-  <!-- /.control-sidebar -->
-<div id="sidebar-overlay"></div></div>
+  
 <!--FIM TIMELINE-->
   </div>
 </div>

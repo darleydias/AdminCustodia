@@ -185,7 +185,7 @@ opacity: 1 ;
               <!--STATUS-->
               <div class="card-header"> 
                   <div class="card-tools">
-                      <span title="3 New Messages" class="badge">Apreenção no Alvo</span><span title="3 New Messages" class="badge"><a target="_blank" href="../../dist/arquivos/aba.pdf">ABA</a></span>
+                      <span title="3 New Messages" class="badge">Apreenção no Alvo (10/02/2022 05:40)</span><span title="Local" class="badge"><a target="_blank" href="../../dist/arquivos/aba.pdf">ABA</a></span>
                   </div>
                 </div>
                 <!--FIM STATUS-->
@@ -235,7 +235,7 @@ opacity: 1 ;
               <!--STATUS-->
               <div class="card-header"> 
                   <div class="card-tools">
-                      <span title="3 New Messages" class="badge">Apreenção no Alvo</span><span title="3 New Messages" class="badge"><a target="_blank" href="../../dist/arquivos/aba.pdf">ABA</a></span>
+                      <span title="3 New Messages" class="badge">Apreenção no Alvo (10/02/2022 05:40)</span><span title="3 New Messages" class="badge"><a target="_blank" href="../../dist/arquivos/aba.pdf">ABA</a></span>
                   </div>
                 </div>
                 <!--FIM STATUS-->
@@ -280,7 +280,7 @@ opacity: 1 ;
               <!--STATUS-->
               <div class="card-header"> 
                   <div class="card-tools">
-                      <span title="3 New Messages" class="badge">Apreenção no Alvo</span><span title="3 New Messages" class="badge"><a target="_blank" href="../../dist/arquivos/aba.pdf">ABA</a></span>
+                      <span title="3 New Messages" class="badge">Apreenção no Alvo (10/02/2022 05:40)</span><span title="3 New Messages" class="badge"><a target="_blank" href="../../dist/arquivos/aba.pdf">ABA</a></span>
                   </div>
                 </div>
                 <!--FIM STATUS-->
