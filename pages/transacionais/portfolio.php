@@ -32,7 +32,111 @@ opacity: 1 ;
 </style>
 </head>
 <body class="hold-transition sidebar-mini">
+    <!--MODAL-->
+<div class="modal fade" id="modal-lgE">
+<div class="modal-dialog modal-lg">
+<div class="modal-content">
+ <div class="modal-header">
+<h4 class="modal-title">Encaminhamento</h4>
+<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+<span aria-hidden="true">×</span>
+</button>
+</div>
+<div class="modal-body">
+<p>
+<div class="row">
+  <div class="col-sm-2">
+  </div></div>
+  <form name="from_modal" id="form_proc" style="display:block">
+      <div class="card">
+        <div class="card-body">
+          <div class="box-body">
+          <table id="tb_modal" class="table table-bordered table-hover">
+              <tbody id="tbodyM_1">
+                      <label for="exampleInputPassword1">Responsável</label>
+                      <div class="row">
+                        <div class="col-sm-2">
+                        <input type="text" size="10" onblur="mostraPessoas();" class="form-control" id="mamp" placeholder="MAMP/Matrícula" v-model="object.mamp" >
+                        </div>
+                        <div class="col-sm-10">
+                        <input type="text" size="10" onblur="mostraPessoas();"class="form-control" id="pro" placeholder="Nome" v-model="object.promotor">
+                        </div>
+                      </div>
+                    </div>
+                    <br>
+                    <div id="labelpessoa" style="display:none;">
+                        <div class="row" onclick="document.getElementById('selecionada').style.display='block'" id="linha1" style="border-bottom: solid; border-bottom-width: 0.1px; margin-right: 5px; padding: 15px;'">
+                          <div class="col-xs-2" style="width: 20%;">MAMP: 67543</div>  
+                          <div class="col-xs-10" style="width: 80%;" id="nome1">Carlinda Paula Fontes</div>
+                        </div>
+                        <div class="row" onclick="document.getElementById('selecionada').style.display='block'" id="linha1" style="border-bottom: solid; border-bottom-width: 0.1px; margin-right: 5px; padding: 15px;'">
+                          <div class="col-xs-2" style="width: 20%;">132.458-9 </div>  
+                          <div class="col-xs-10" style="width: 80%;" id="nome2">Sgt Eder Valdomiro</div>
+                        </div>
+                    </div>
+                    <br>
+                    <div  id="selecionada" style="display:none;">
+                        
+
+
+                    <div class="row">
+                    <div class="form-group">
+                    <div class="col-sm-12">
+                                <label for="setor">Unidade apoiada</label>
+                                <select  onchange="mudaCombo(this)"id="setor" class="form-control select2 select2-hidden-accessible" style="width: 100%;" data-select2-id="1" tabindex="-1" aria-hidden="true">
+                                  <option selected="selected" data-select2-id="3">selecione</option>
+                                  <option value="1">GAECO CENTRAL</option>
+                                  <option value="2">CAOET</option>
+                                  <option value="3">CEAT</option>
+                                  <option value="3">GCOC-R11 (Montes Claros/MG)</option>
+                                </select>  
+                            </div>
+                    </div>
+                    </div>
+
+
+                    
+                    
+                        <div class="row">
+                            <div class="col-sm-2">
+                            <label for="pro">Tarefa</label>
+                            </div>
+                            <div class="col-sm-10">
+                            <input type="text" size="10" class="form-control" id="tarefaTxt" placeholder="Defina a próxima Tarefa">
+                            </div>
+                        </div>
+
+                        <br>
+                        <div class="row">
+                            <div class="col-sm-2">
+                            <label for="pro">Digite o Token</label>
+                            </div>
+                            <div class="col-sm-10">
+                            <input type="text" size="10" onblur="mostraPessoas();"class="form-control" id="pro" placeholder="Digite o Token" v-model="object.promotor">
+                            </div>
+                        </div>
+                    </div>
+
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+  </form>
+</p>
+</div>
+<div class="modal-footer justify-content-between">
+<button type="button" onclick="maisUmElemento(document.getElementById('tarefaTxt').value)" class="btn btn-primary" data-dismiss="modal" aria-label="Close">Encaminhar</button>
+</div>
+</div>
+</div>
+</div>
+<!--fim modal-->
+
 <script>
+  function mostraPessoas(){
+    document.getElementById('labelpessoa').style.display="block";
+  }
   function funcao(e){
    var result = e.options[e.selectedIndex].value;
    result = result.trim()
@@ -63,7 +167,32 @@ opacity: 1 ;
     console.log(`Sorry, we are out of ${expr}.`);
     }
   }
-
+  function marcaTodos(){
+    let enc = document.getElementById('aEncaminhar').style.display;
+    if(enc=='none'){document.getElementById('aEncaminhar').style.display='inline-block';}else{document.getElementById('aEncaminhar').style.display='none';}
+    let ch1=document.getElementById('check1');
+    let ch2=document.getElementById('check2');
+    let ch3=document.getElementById('check3');
+    if(ch1.checked==false){ch1.checked=true;}else{ch1.checked=false;}
+    if(ch2.checked==false){ch2.checked=true;}else{ch2.checked=false;}
+    if(ch3.checked==false){ch3.checked=true;}else{ch3.checked=false;}
+  }
+  function marcaTodos2(){
+    let enc = document.getElementById('aEncaminhar2').style.display;
+    if(enc=='none'){document.getElementById('aEncaminhar2').style.display='inline-block';}else{document.getElementById('aEncaminhar2').style.display='none';}
+    let ch4=document.getElementById('check4');
+    let ch5=document.getElementById('check5');
+    let ch6=document.getElementById('check6');
+    let ch7=document.getElementById('check7');
+    let ch8=document.getElementById('check8');
+    let ch9=document.getElementById('check9');
+    if(ch4.checked==false){ch4.checked=true;}else{ch4.checked=false;}
+    if(ch5.checked==false){ch5.checked=true;}else{ch5.checked=false;}
+    if(ch6.checked==false){ch6.checked=true;}else{ch6.checked=false;}
+    if(ch7.checked==false){ch7.checked=true;}else{ch7.checked=false;}
+    if(ch8.checked==false){ch8.checked=true;}else{ch8.checked=false;}
+    if(ch9.checked==false){ch9.checked=true;}else{ch9.checked=false;}
+  }
 </script>
 <div class="wrapper">
 <!--MODAL-->
@@ -180,7 +309,7 @@ opacity: 1 ;
                 </div>
                 <!-- /.widget-user-image -->
                 <h3 class="widget-user-username">Ponto 01 - Rua Levindo Torres, 42 - Bairro Horta </h3>
-                <h5 class="widget-user-desc">Alvo - Aristóteles Agustus</h5>
+                <h5 class="widget-user-desc">Alvo - Aristóteles Augustus</h5>
               </div>
               <!--STATUS-->
               <div class="card-header"> 
@@ -467,14 +596,15 @@ opacity: 1 ;
                 <div class="widget-user-image">
                   <img class="img-circle elevation-2" src="../../dist/img/user7-128x128.jpg" alt="User Avatar">
                 </div>
-                <!-- /.widget-user-image -->
-                <h3 class="widget-user-username">Ponto 01 - Rua Levindo Torres, 42 - Bairro Horta </h3>
-                <h5 class="widget-user-desc">Alvo - Aristóteles Agustus</h5>
-              </div>
+                  <!-- /.widget-user-image -->
+                  <h3 class="widget-user-username">Ponto 01 - Rua Levindo Torres, 42 - Bairro Horta </h3>
+                  <h5 class="widget-user-desc">Alvo - Aristóteles Augustus</h5>
+                  
+                </div>
               <!--STATUS-->
                 <div class="card-header"> 
                   <div class="card-tools">
-                      <span title="3 New Messages" class="badge">GAECO Conferência</span><span title="3 New Messages" class="badge"><a target="_blank" href="../../dist/arquivos/deslacracao.pdf">Deslacração</a></span>
+                      <span title="3 New Messages" class="badge">GAECO Conferência</span><span title="3 New Messages" class="badge"><a target="_blank" href="./deslacracao.php">Auto de rompimento de lacre</a></span>
                   </div>
                 </div>
                 <!--FIM STATUS-->
@@ -524,7 +654,7 @@ opacity: 1 ;
               <!--STATUS-->
               <div class="card-header"> 
                   <div class="card-tools">
-                      <span title="3 New Messages" class="badge">GAECO Conferência</span><span title="3 New Messages" class="badge"><a href="../../dist/arquivos/deslacracao.pdf">Deslacração</a></span>
+                      <span title="3 New Messages" class="badge">GAECO Conferência</span><span title="3 New Messages" class="badge"><a href="./deslacracao.php">Auto de rompimento de lacre</a></span>
                   </div>
                 </div>
                 <!--FIM STATUS-->
@@ -569,7 +699,7 @@ opacity: 1 ;
               <!--STATUS-->
               <div class="card-header"> 
                   <div class="card-tools">
-                      <span title="3 New Messages" class="badge">GAECO Conferência</span><span title="3 New Messages" class="badge"><a href="../../dist/arquivos/deslacracao.pdf">Deslacração</a></span>
+                      <span title="3 New Messages" class="badge">GAECO Conferência</span><span title="3 New Messages" class="badge"><a href="./deslacracao.php">Auto de rompimento de lacre</a></span>
                   </div>
                 </div>
                 <!--FIM STATUS-->
@@ -612,32 +742,39 @@ opacity: 1 ;
                   <img class="img-circle elevation-2" src="../../dist/img/user7-128x128.jpg" alt="User Avatar">
                 </div>
                 <!-- /.widget-user-image -->
+                
                 <h3 class="widget-user-username">Ponto 01 - Rua Levindo Torres, 42 - Bairro Horta </h3>
                 <h5 class="widget-user-desc">Alvo - Aristóteles Agustus</h5>
+                
               </div>
                 <!--STATUS-->
                 <div class="card-header"> 
                   <div class="card-tools">
-                      <span title="3 New Messages" class="badge">GAECO Análise</span>
+                  <a id="aEncaminhar" style="display:none;" href="#" class="small-box-footer"  data-toggle="modal" data-target="#modal-lgE">Encaminhar <i class="fas fa-arrow-circle-right"></i></a>
+                      <span title="3 New Messages" style="margin-right:15px;margin-top:5px" class="badge">GAECO Análise</span>
+                      <input class="form-check-input" type="checkbox" value="" id="checkAll" onchange="marcaTodos()" style="margin-left:-10px;margin-top:5px" >
                   </div>
                 </div>
                 <!--FIM STATUS-->
               <div class="card-footer p-0">
                 <ul class="nav flex-column">
-                  <li class="nav-item">
-                    <a href="#" class="nav-link">
+                  <li class="nav-item" >
+                    <input class="form-check-input" type="checkbox" value="" id="check1" style="margin-left:10px;margin-top:12px">
+                    <a href="#" class="nav-link" style="margin-left:10px;">
                     Computador preto Dell Inspiron  <span class="float-right badge bg-primary">Devolvido</span>
                      <span class="float-right badge" onclick="javascript:abreJanela()" role="button">Termo de restituição</span>
                     </a>
                   </li> 
-                 
+
                   <li class="nav-item">
-                    <a href="#" class="nav-link">
+                    <input class="form-check-input" type="checkbox" value="" id="check2" style="margin-left:10px;margin-top:12px">
+                    <a href="#" class="nav-link"  style="margin-left:10px;">
                       HD Barracuda 512 GB <span class="float-right badge bg-success">01</span>
                     </a>
                   </li>
                   <li class="nav-item">
-                    <a href="#" class="nav-link">
+                      <input class="form-check-input" type="checkbox" value="" id="check3" style="margin-left:10px;margin-top:12px">
+                    <a href="#" class="nav-link"  style="margin-left:10px;">
                       Documentos diversos <span class="float-right badge bg-danger">Incluido nos autos</span>
                     </a>
                   </li>
@@ -662,12 +799,16 @@ opacity: 1 ;
                 
                 <!-- /.widget-user-image -->
                 <h3 class="widget-user-username">Ponto 02 e 03 </h3>
-                <h5 class="widget-user-desc">Alvo - Demétrios Damares</h5>
+                <h5 class="widget-user-desc">Alvos - Demétrios Damares e Carmelia Borba</h5>
               </div>
                 <!--STATUS-->
                 <div class="card-header"> 
                   <div class="card-tools">
-                      <span title="3 New Messages" class="badge">Encaminhado a CEAT</span>
+                    <a id="aEncaminhar2" style="display:none;" href="#" class="small-box-footer"  
+                    data-toggle="modal" data-target="#modal-lgE">Encaminhar<i class="fas fa-arrow-circle-right"></i>
+                  </a>
+                      <span title="3 New Messages" class="badge" style="margin-right:15px;margin-top:5px">Encaminhado a CEAT</span>
+                      <input class="form-check-input" type="checkbox" value="" id="checkAll" onchange="marcaTodos2()" style="margin-left:-10px;margin-top:5px" >
                   </div>
                 </div>
                 <!--FIM STATUS-->
@@ -676,32 +817,38 @@ opacity: 1 ;
               <div class="card-footer p-0">
                 <ul class="nav flex-column">
                   <li class="nav-item">
-                    <a href="#" class="nav-link">
+                  <input class="form-check-input" type="checkbox" onchange="if(document.getElementById('aEncaminhar2').style.display=='none'){document.getElementById('aEncaminhar2').style.display='inline-block';}else{document.getElementById('aEncaminhar2').style.display='none';}" value="" id="check4" style="margin-left:10px;margin-top:12px">
+                    <a href="#" class="nav-link"  style="margin-left:10px;">
                     Computador HP 17 preto <span class="float-right badge bg-primary">01</span>
                     </a>
                   </li>
                   <li class="nav-item">
-                    <a href="#" class="nav-link">
+                  <input class="form-check-input" type="checkbox" onchange="if(document.getElementById('aEncaminhar2').style.display=='none'){document.getElementById('aEncaminhar2').style.display='inline-block';}else{document.getElementById('aEncaminhar2').style.display='none';}" value="" id="check5" style="margin-left:10px;margin-top:12px">
+                    <a href="#" class="nav-link"  style="margin-left:10px;">
                       Notebook HP Compag <span class="float-right badge bg-info">01</span>
                     </a>
                   </li>
                   <li class="nav-item">
-                    <a href="#" class="nav-link">
+                  <input class="form-check-input" type="checkbox" onchange="if(document.getElementById('aEncaminhar2').style.display=='none'){document.getElementById('aEncaminhar2').style.display='inline-block';}else{document.getElementById('aEncaminhar2').style.display='none';}" value="" id="check6" style="margin-left:10px;margin-top:12px">
+                    <a href="#" class="nav-link" style="margin-left:10px;">
                       03 pen drives 16 GB <span class="float-right badge bg-success">03</span>
                     </a>
                   </li>
                   <li class="nav-item">
-                    <a href="#" class="nav-link">
+                  <input class="form-check-input" type="checkbox" onchange="if(document.getElementById('aEncaminhar2').style.display=='none'){document.getElementById('aEncaminhar2').style.display='inline-block';}else{document.getElementById('aEncaminhar2').style.display='none';}" value="" id="check7" style="margin-left:10px;margin-top:12px">
+                    <a href="#" class="nav-link" style="margin-left:10px;">
                     Smartphone xiaomi dourado <span class="float-right badge bg-primary">01</span>
                     </a>
                   </li>
                   <li class="nav-item">
-                    <a href="#" class="nav-link">
+                  <input class="form-check-input" type="checkbox" onchange="if(document.getElementById('aEncaminhar2').style.display=='none'){document.getElementById('aEncaminhar2').style.display='inline-block';}else{document.getElementById('aEncaminhar2').style.display='none';}"value="" id="check8" style="margin-left:10px;margin-top:12px">
+                    <a href="#" class="nav-link" style="margin-left:10px;">
                     Smartphone Iphone 12 pro <span class="float-right badge bg-info">01</span>
                     </a>
                   </li>
                   <li class="nav-item">
-                    <a href="#" class="nav-link">
+                  <input class="form-check-input" type="checkbox" onchange="if(document.getElementById('aEncaminhar2').style.display=='none'){document.getElementById('aEncaminhar2').style.display='inline-block';}else{document.getElementById('aEncaminhar2').style.display='none';}" value="" id="check9" style="margin-left:10px;margin-top:12px">
+                    <a href="#" class="nav-link" style="margin-left:10px;">
                       Midia em DVR  <span class="float-right badge bg-success">01</span>
                     </a>
                   </li>

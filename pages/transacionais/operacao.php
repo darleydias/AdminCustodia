@@ -35,7 +35,7 @@ $path_menu="../";
     let tbody = document.getElementById('tbody_1');
     table.appendChild(thead);
     table.appendChild(tbody);
-    let row = document.createElement('tr');
+    let row = document.createElement('tr',);
     let row_data = document.createElement('td');
     let row_data_1 = document.createElement('td');
     let row_data_2 = document.createElement('td');
@@ -43,11 +43,14 @@ $path_menu="../";
     let row_data_4 = document.createElement('td');
     let row_data_5 = document.createElement('td');
     let row_link = document.createElement('td');
+    
+
     row_data.innerHTML = proc;
     row_data_1.innerHTML = fase;
     row_data_2.innerHTML = oper;
     row_data_3.innerHTML = rat;
     row_data_4.innerHTML = mamp+" - "+pro;
+   
 
     conteudo = "<div class='float-right'><a href='#' ";
     conteudo = conteudo + " onclick=\"this.parentNode.parentNode.parentNode.style.display = 'none'\">"

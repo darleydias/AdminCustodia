@@ -128,7 +128,7 @@ opacity: 1 ;
   }
 
   function maisUmElemento(tarefa){
-    document.getElementById('tarefa').innerHTML=tarefa;
+    document.getElementById('mostraTarefa').innerHTML=tarefa;
     document.getElementById('itemTimeA').style.display='block';
     document.getElementById('itemTimeB').style.display='block';
     document.getElementById('primeiraSeta').style.display='none';
@@ -189,7 +189,7 @@ opacity: 1 ;
                             <label for="pro">Tarefa</label>
                             </div>
                             <div class="col-sm-10">
-                            <input type="text" size="10" class="form-control" id="tarefaTxt" placeholder="Defina a próxima Tarefa" v-model="object.promotor">
+                            <input type="text" size="10" class="form-control" id="tarefaTxt" placeholder="Defina a próxima Tarefa">
                             </div>
                         </div>
                         <br>
@@ -593,7 +593,9 @@ opacity: 1 ;
                 <i class="fa fa-cogs bg-purple"></i>
                 <div class="timeline-item">
                   <span class="time">Carla Neiva Torres&nbsp;&nbsp;&nbsp;<i class="fas fa-clock"></i> 14 horas</span>
-                  <h3 class="timeline-header"><a href="javascript:void(0);"><div id="tarefa"></div></a></h3>
+                  <h3 class="timeline-header"><a href="javascript:void(0);">
+                    <div id="tarefa"></div>
+                  </a></h3>
                   <div class="timeline-body">
                             <textarea class="form-control" id="end"rows="3" placeholder="descrição da tarefa" ></textarea>
                   </div>
@@ -628,7 +630,7 @@ opacity: 1 ;
                 <i class="fa fa-cogs bg-purple"></i>
                 <div class="timeline-item">
                   <span class="time">Carla Neiva Torres&nbsp;&nbsp;&nbsp;<i class="fas fa-clock"></i> 14 horas</span>
-                  <h3 class="timeline-header"><a href="javascript:void(0);"><div id="tarefa"></div></a></h3>
+                  <h3 class="timeline-header"><a href="javascript:void(0);"><div id="mostraTarefa"></div></a></h3>
                   <div class="timeline-body">
                             <textarea class="form-control" id="end"rows="3" placeholder="descrição da tarefa" ></textarea>
                   </div>

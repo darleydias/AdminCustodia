@@ -20,9 +20,28 @@ $path_menu="../";
   <link href="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+    <style type="text/css">
+    #linha1:hover,#linha2:hover,#linha3:hover,#linha4:hover,#linha5:hover,#linha6:hover,#linha7:hover,#linha8:hover
+    { 
+        z-index:-1;
+        background-color: rgba(0,0,0,0.1); 
+        transition: 0.2s;
+        opacity: 1 ;
+    }
+    </style>
+
 </head>
 
 <body class="hold-transition sidebar-mini">
+<div class="wrapper">
+<?php include($path_menu."include/notificacoes.php");?>
+  <!-- Main Sidebar Container -->
+<?php include($path_menu."include/menu.php");?>
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <div class="content-header">
+      <div class="container-fluid">
 
         <!-- INICIO DOCUMENTO -->
         <div class="row ">
@@ -120,14 +139,82 @@ $path_menu="../";
                                 </div>
                             </td>
                         </tr>
-
-
                     </tbody>
                 </table>
-
-
+                <br><br><br>
+                <!--Assinatura-->
+                <div class="form-group text-justify" style="margin-left:50px;margin-right:50px">
+                    <div class="row">
+                    <div class="col-lg-2">
+                        <label for="mampModal">MAMP/Matrícula</label>
+                        <input type="text" class="form-control" id="mampModal" placeholder="Digite o MAMP o Matrícula">
+                    </div>
+                    <div class="col-lg-8">
+                        <label for="nomeModal">Nome</label>
+                        <input type="text" class="form-control" id="nomeModal" placeholder="Digite o nome do participante">
+                    </div>
+                    <div class="col-lg-2">
+                        <br>
+                    <a onclick="document.getElementById('alerta').style.display='block'" href="javascript:void(0)" class="btn btn-info" aria-hidden="true">Pesquisar</a>
+                    </div>
+                    </div>
+                </div>
+                <span id="alerta" style="display:none;">
+                    <br><br>
+                    <div class="container-fluid" style="margin-left: 20px;">
+                        <div class="row" onclick="mostraAssinatura('Carla Parocinio Amaral')" id="linha1" style="border-top: solid; border-top-width: 0.1px;border-bottom: solid; border-bottom-width: 0.1px; margin-right: 5px; padding: 15px;'">
+                            <div class="col-xs-2" style="width: 20%;">6549</div>    
+                            <div class="col-xs-2" style="width: 80%;">Carla Parocinio Amaral</div>
+                        </div>
+                        <div class="row" onclick="mostraAssinatura('Carlos Alberto Vaccinati')" id="linha1" style="border-bottom: solid; border-bottom-width: 0.1px; margin-right: 5px; padding: 15px;'">
+                            <div class="col-xs-2" style="width: 20%;">6549</div>    
+                            <div class="col-xs-2" style="width: 80%;">Carlos Alberto Vaccinati </div>
+                        </div>
+                    </div>
+                </span>
+                <!--Assinatura-->
+                <br><br><br><br><br><br>
+                <span id="assinatura" style="display:none;">
+                    <div class="row">
+                        <div class="col-md-4">
+                        </div>
+                        <div class="col-md-4 text-center">
+                        _______________________________________________
+                        </div>
+                        <div class="col-md-4">
+                       
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                        </div>
+                        <div class="col-md-4 text-center" id="nomeAssina">
+                        Carla Parocinio Amaral, Promotora de Justiça. 
+                        </div>
+                        <div class="col-md-4">
+                        </div>
+                    </div>
+                </span>
+                <div class="float-right">
+                    <a href="javascript:void(0);" class="btn btn-info" onclick="">
+                        Salvar
+                    </a>
+                    &nbsp;&nbsp;&nbsp;
+                    <a href="javascript:void(0);" class="btn btn-info" onclick="this.parentNode.parentNode.parentNode.style.display = 'none'">
+                        Gerar PDF
+                    </a>
+                </div>
            </div>
         </div>
+        </div></div></div></div>
+
+        <script>
+            function mostraAssinatura(nome){
+                document.getElementById('alerta').style.display='none';
+                document.getElementById('assinatura').style.display='block';
+                document.getElementById('nomeAssina').innerHTML=nome;
+            }
+        </script>
         
 </body>
 </html>
