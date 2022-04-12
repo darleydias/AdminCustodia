@@ -166,6 +166,70 @@ $path_menu="../";
 </div>
 <!--fim modal-->
 <!--MODAL-->
+<div class="modal fade" id="modal-lgTestemunha">
+<div class="modal-dialog modal-lg">
+<div class="modal-content">
+  <div class="modal-header">
+    <h4 class="modal-title">Testemunhas</h4>
+  </div>
+  <div class="modal-body">
+    <p>
+      <div class="row">
+        <div class="col-sm-12">
+            <form name="form_modal" id="form_modal" style="display:none">
+                    <div class="card">
+                      <div class="card-body">
+                        <div class="box-body">
+                          <div class="form-group">
+                            <div class="row">
+                              <div class="col-lg-2">
+                                <label for="mampModal">MAMP/Matrícula</label>
+                                <input type="text" class="form-control" id="mampModal" placeholder="Digite o MAMP o Matrícula">
+                              </div>
+                              <div class="col-lg-8">
+                                <label for="nomeModal">Nome</label>
+                                <input type="text" class="form-control" id="nomeModal" placeholder="Digite o nome do participante">
+                              </div>
+                            </div>
+                          </div>
+                          <div class="form-group">
+                              <button type="button" onclick="javascript:incluirDadosModal(document.getElementById('mampModal').value,document.getElementById('nomeModal').value)" class="btn btn-primary">Gravar</button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+            </form>
+         </div>
+      </div>
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="card">
+        <div class="card-body">
+          <table id="tb_modal" name="tb_modal" class="table table-bordered table-hover">
+              <thead id="theadM_1"><th style="border-right-style:hidden">MAMP/Matrícula</th><th style="border-right-style:hidden">Nome</th><th><a href="#" style="text-align:right" onclick="document.getElementById('form_modal').style.display='block';"><i class="fa fas fa-plus-circle fa-2x" style="font-size:28px"></i></a></th></thead>
+              <tbody id="tbodyM_1">
+              <tr><td style="border-right-style:hidden">MG-564-453</td><td style="border-right-style:hidden">Maurício Lindomar Silva</td><td><a href="#" style="text-align:right" onclick="this.parentNode.parentNode.style.display = 'none'"><i class="fa fa-minus-circle" style="font-size:28px;color:red;border-right-style:hidden"></i></a></td></tr>
+              <tr><td style="border-right-style:hidden">CPF 564.346.899.22/td><td style="border-right-style:hidden">Ismaela Antonieta</td><td><a href="#" style="text-align:right" onclick="this.parentNode.parentNode.style.display = 'none'"><i class="fa fa-minus-circle" style="font-size:28px;color:red;border-right-style:hidden"></i></a></td></tr>
+              <tr><td style="border-right-style:hidden">MG 457.345.</td><td style="border-right-style:hidden">Fabiola Fulgêncio</td><td><a href="#" style="text-align:right" onclick="this.parentNode.parentNode.style.display = 'none'"><i class="fa fa-minus-circle" style="font-size:28px;color:red;border-right-style:hidden"></i></a></td></tr>
+              <tr><td style="border-right-style:hidden">MG 345.444</td><td style="border-right-style:hidden">Marcio Fagundes</td><td><a href="#" style="text-align:right" onclick="this.parentNode.parentNode.style.display = 'none'"><i class="fa fa-minus-circle" style="font-size:28px;color:red;border-right-style:hidden"></i></a></td></tr>
+              <tr><td style="border-right-style:hidden">CPF 723.345.566.75</td><td style="border-right-style:hidden">Andre Souza</td><td><a href="#" style="text-align:right" onclick="this.parentNode.parentNode.style.display = 'none'"><i class="fa fa-minus-circle" style="font-size:28px;color:red;border-right-style:hidden"></i></a></td></tr>
+             </tbody>
+            </table>
+          </div>
+      </div>
+    </div>
+  </div>
+</p>
+</div>
+<div class="modal-footer justify-content-between">
+<button type="button" class="btn btn-primary" data-dismiss="modal" aria-label="Close">Sair</button>
+</div>
+</div>
+</div>
+</div>
+<!--fim modal-->
+
+<!--MODAL-->
 <div class="modal fade" id="modal-lg">
 <div class="modal-dialog modal-lg">
 <div class="modal-content">
@@ -427,7 +491,8 @@ $path_menu="../";
                             <th style="border-right-style:hidden">Lacre</th>                       
                             <th style="border-right-style:hidden">Tipo</th> 
                             <th style="border-right-style:hidden">Descrição</th>
-                            <th style="border-right-style:hidden">Quantidade</th>                      
+                            <th style="border-right-style:hidden">Quantidade</th> 
+                            <th style="border-right-style:hidden">Testemunhas</th> 
                             <th style="border-right-style:hidden">Mais</th> 
                         </tr>
                       </thead>
@@ -437,6 +502,7 @@ $path_menu="../";
                           <td style="border-right-style:hidden">Microcomputador de mesa</td>
                           <td style="border-right-style:hidden">Computador DELL modelo torre, Nr série: 65877676</td>
                           <td style="border-right-style:hidden">01</td>
+                          <td style="border-right-style:hidden"><a href="#" data-toggle="modal" data-target="#modal-lgTestemunha"><i class="fa fa-street-view" aria-hidden="true"></i></a>&nbsp;&nbsp;&nbsp;</td>
                           <td style="border-right-style:hidden"><a href="#" data-toggle="modal" data-target="#modal-lg"><i class="fa fa-arrow-circle-right"></i></a>&nbsp;&nbsp;&nbsp;</td>
                         </tr>
                         <tr id="linha1">
@@ -444,6 +510,7 @@ $path_menu="../";
                           <td style="border-right-style:hidden">Smartphone</td>
                           <td style="border-right-style:hidden">Smartphone Aplle Iphone 11 Nr série:0098766</td>
                           <td style="border-right-style:hidden">01</td>
+                          <td style="border-right-style:hidden"><a href="#" data-toggle="modal" data-target="#modal-lgTestemunha"><i class="fa fa-street-view" aria-hidden="true"></i></a>&nbsp;&nbsp;&nbsp;</td>
                           <td style="border-right-style:hidden"><a href="#" data-toggle="modal" data-target="#modal-lg2"><i class="fa fa-arrow-circle-right"></i></a>&nbsp;&nbsp;&nbsp;</td>
                         </tr>
                         <tr id="linha1">
@@ -451,6 +518,7 @@ $path_menu="../";
                           <td style="border-right-style:hidden">Documentos diversos</td>
                           <td style="border-right-style:hidden">Pastas de informações contábeis</td>
                           <td style="border-right-style:hidden">09</td>
+                          <td style="border-right-style:hidden"><a href="#" data-toggle="modal" data-target="#modal-lgTestemunha"><i class="fa fa-street-view" aria-hidden="true"></i></a>&nbsp;&nbsp;&nbsp;</td>
                           <td style="border-right-style:hidden"><a href="#" data-toggle="modal" data-target="#modal-lg3"><i class="fa fa-arrow-circle-right"></i></a>&nbsp;&nbsp;&nbsp;</td>
                         </tr>
                         <tr id="linha1">
@@ -458,6 +526,7 @@ $path_menu="../";
                           <td style="border-right-style:hidden">HD Externo</td>
                           <td style="border-right-style:hidden">HD Externo Seagate 1 Terabytes, interfaçe USB3</td>
                           <td style="border-right-style:hidden">02</td>
+                          <td style="border-right-style:hidden"><a href="#" data-toggle="modal" data-target="#modal-lgTestemunha"><i class="fa fa-street-view" aria-hidden="true"></i></a>&nbsp;&nbsp;&nbsp;</td>
                           <td style="border-right-style:hidden"><a href="#" data-toggle="modal" data-target="#modal-lg4"><i class="fa fa-arrow-circle-right"></i></a>&nbsp;&nbsp;&nbsp;</td>
                         </tr>
                       </tbody>

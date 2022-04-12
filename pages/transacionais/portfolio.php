@@ -44,6 +44,7 @@ opacity: 1 ;
 </div>
 <div class="modal-body">
 <p>
+  <input type="hidden" id="numeroColuna">
 <div class="row">
   <div class="col-sm-2">
   </div></div>
@@ -80,25 +81,33 @@ opacity: 1 ;
 
 
                     <div class="row">
-                    <div class="form-group">
-                    <div class="col-sm-12">
-                                <label for="setor">Unidade apoiada</label>
-                                <select  onchange="mudaCombo(this)"id="setor" class="form-control select2 select2-hidden-accessible" style="width: 100%;" data-select2-id="1" tabindex="-1" aria-hidden="true">
-                                  <option selected="selected" data-select2-id="3">selecione</option>
-                                  <option value="1">GAECO CENTRAL</option>
-                                  <option value="2">CAOET</option>
-                                  <option value="3">CEAT</option>
-                                  <option value="3">GCOC-R11 (Montes Claros/MG)</option>
-                                </select>  
+                        <div class="form-group">
+                          <div class="col-sm-12">
+                                      <label for="setor">Destino</label>
+                                      <select  onchange="mudaCombo(this)"id="setor" class="form-control select2 select2-hidden-accessible" style="width: 100%;" data-select2-id="1" tabindex="-1" aria-hidden="true">
+                                        <option selected="selected" data-select2-id="3">selecione</option>
+                                        <option value="1">GAECO CENTRAL</option>
+                                        <option value="2">CAOET</option>
+                                        <option value="3">CEAT</option>
+                                        <option value="4">GCOC-R11 (Montes Claros/MG)</option>
+                                        <option value="5">Outra</option>
+                                        <option value="5">Devolução</option>
+                                      </select>  
+                          </div>
+                        </div>
+                    </div>
+                    <div class="row" id="destino" style="display:none">
+                            <div class="col-sm-12">
+                            <label for="pro">Descreva o destino</label>
                             </div>
-                    </div>
+                            <div class="col-sm-10">
+                            <input type="text" size="10" value="" class="form-control" id="destino" placeholder="Descreva o destino">
+                            </div>
+                        </div>
                     </div>
 
-
-                    
-                    
                         <div class="row">
-                            <div class="col-sm-2">
+                            <div class="col-sm-12">
                             <label for="pro">Tarefa</label>
                             </div>
                             <div class="col-sm-10">
@@ -108,10 +117,10 @@ opacity: 1 ;
 
                         <br>
                         <div class="row">
-                            <div class="col-sm-2">
+                            <div class="col-sm-12">
                             <label for="pro">Digite o Token</label>
                             </div>
-                            <div class="col-sm-10">
+                            <div class="col-sm-12">
                             <input type="text" size="10" onblur="mostraPessoas();"class="form-control" id="pro" placeholder="Digite o Token" v-model="object.promotor">
                             </div>
                         </div>
@@ -126,7 +135,8 @@ opacity: 1 ;
 </p>
 </div>
 <div class="modal-footer justify-content-between">
-<button type="button" onclick="maisUmElemento(document.getElementById('tarefaTxt').value)" class="btn btn-primary" data-dismiss="modal" aria-label="Close">Encaminhar</button>
+<button type="button" onclick="maisUmElemento(document.getElementById('numeroColuna').value,document.getElementById('tarefaTxt').value)" class="btn btn-primary" data-dismiss="modal" aria-label="Close">Encaminhar</button>
+
 </div>
 </div>
 </div>
@@ -134,8 +144,23 @@ opacity: 1 ;
 <!--fim modal-->
 
 <script>
+ 
   function mostraPessoas(){
     document.getElementById('labelpessoa').style.display="block";
+  }
+  function maisUmElemento(coluna,titulo){
+    if(coluna==1){
+      document.getElementById('spanTarefa1').innerHTML=titulo;
+      document.getElementById('novaLinha1').style.display='inline-block';
+    }
+    if(coluna==2){
+      document.getElementById('spanTarefa2').innerHTML=titulo;
+      document.getElementById('novaLinha2').style.display='inline-block';
+    }
+    if(coluna==3){
+      document.getElementById('spanTarefa3').innerHTML=titulo;
+      document.getElementById('novaLinha3').style.display='inline-block';
+    }
   }
   function funcao(e){
    var result = e.options[e.selectedIndex].value;
@@ -168,31 +193,44 @@ opacity: 1 ;
     }
   }
   function marcaTodos(){
-    let enc = document.getElementById('aEncaminhar').style.display;
-    if(enc=='none'){document.getElementById('aEncaminhar').style.display='inline-block';}else{document.getElementById('aEncaminhar').style.display='none';}
+    let enc = document.getElementById('aEncaminhar1').style.display;
+    if(enc=='none'){document.getElementById('aEncaminhar1').style.display='inline-block';}else{document.getElementById('aEncaminhar1').style.display='none';}
     let ch1=document.getElementById('check1');
     let ch2=document.getElementById('check2');
     let ch3=document.getElementById('check3');
+    let ch4=document.getElementById('check4');
     if(ch1.checked==false){ch1.checked=true;}else{ch1.checked=false;}
     if(ch2.checked==false){ch2.checked=true;}else{ch2.checked=false;}
     if(ch3.checked==false){ch3.checked=true;}else{ch3.checked=false;}
+    if(ch4.checked==false){ch4.checked=true;}else{ch4.checked=false;}
   }
   function marcaTodos2(){
     let enc = document.getElementById('aEncaminhar2').style.display;
     if(enc=='none'){document.getElementById('aEncaminhar2').style.display='inline-block';}else{document.getElementById('aEncaminhar2').style.display='none';}
-    let ch4=document.getElementById('check4');
     let ch5=document.getElementById('check5');
     let ch6=document.getElementById('check6');
     let ch7=document.getElementById('check7');
-    let ch8=document.getElementById('check8');
-    let ch9=document.getElementById('check9');
-    if(ch4.checked==false){ch4.checked=true;}else{ch4.checked=false;}
+
     if(ch5.checked==false){ch5.checked=true;}else{ch5.checked=false;}
     if(ch6.checked==false){ch6.checked=true;}else{ch6.checked=false;}
     if(ch7.checked==false){ch7.checked=true;}else{ch7.checked=false;}
+
+  }function marcaTodos3(){
+    let enc = document.getElementById('aEncaminhar3').style.display;
+    if(enc=='none'){document.getElementById('aEncaminhar3').style.display='inline-block';}else{document.getElementById('aEncaminhar3').style.display='none';}
+    let ch8=document.getElementById('check8');
+    let ch9=document.getElementById('check9');
+    let ch10=document.getElementById('check10');
+
     if(ch8.checked==false){ch8.checked=true;}else{ch8.checked=false;}
     if(ch9.checked==false){ch9.checked=true;}else{ch9.checked=false;}
+    if(ch10.checked==false){ch10.checked=true;}else{ch10.checked=false;}
   }
+function mudaCombo(obj){
+  if(obj.value==5){
+    document.getElementById('destino').style.display="block"}
+  else{document.getElementById('destino').style.display="none"};
+}
 </script>
 <div class="wrapper">
 <!--MODAL-->
@@ -223,13 +261,15 @@ opacity: 1 ;
                                 <input  type="text" class="form-control" id="procedimento" placeholder="Digite o procedimento">
                             </div>
                             <div class="form-group">
-                                <label for="setor">Unidade apoiada</label>
+                                <label for="setor"> Destino</label>
                                 <select  onchange="mudaCombo(this)"id="setor" class="form-control select2 select2-hidden-accessible" style="width: 100%;" data-select2-id="1" tabindex="-1" aria-hidden="true">
                                   <option selected="selected" data-select2-id="3">selecione</option>
                                   <option value="1">GAECO CENTRAL</option>
                                   <option value="2">CAOET</option>
                                   <option value="3">CEAT</option>
-                                  <option value="3">GCOC-R11 (Montes Claros/MG)</option>
+                                  <option value="4">GCOC-R11 (Montes Claros/MG)</option>
+                                  <option value="5">Outros</option>
+                                  <option value="5">Devolução</option>
                                 </select>  
                             </div>
                             <div class="form-group">
@@ -293,11 +333,34 @@ opacity: 1 ;
                   </div>  <!--row-->
             </div>  <!--fim colapse-->
 
-<!-- INICIO GRID -->
+
+
+<!--INICIO TAB-->
+
+<div class="card card-primary card-outline">
+          <div class="card-header">
+          </div>
+          <div class="card-body">
+            <ul class="nav nav-tabs" id="custom-content-below-tab" role="tablist">
+              <li class="nav-item">
+                <a class="nav-link active" id="custom-content-below-home-tab" data-toggle="pill" href="#custom-content-below-home" role="tab" aria-controls="custom-content-below-home" aria-selected="true">PONTOS (1 - 2 - 3)</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" id="custom-content-below-profile-tab" data-toggle="pill" href="#custom-content-below-profile" role="tab" aria-controls="custom-content-below-profile" aria-selected="false">PONTOS (4 - 5 - 6)</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" id="custom-content-below-messages-tab" data-toggle="pill" href="#custom-content-below-messages" role="tab" aria-controls="custom-content-below-messages" aria-selected="false">PONTOS (7 - 8 - 9)</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" id="custom-content-below-settings-tab" data-toggle="pill" href="#custom-content-below-settings" role="tab" aria-controls="custom-content-below-settings" aria-selected="false">PONTOS (10 - 11 - 12)</a>
+              </li>
+            </ul>
+            <div class="tab-content" id="custom-content-below-tabContent">
+              <div class="tab-pane fade show active" id="custom-content-below-home" role="tabpanel" aria-labelledby="custom-content-below-home-tab">
+                 
+            <!-- INICIO GRID -->
 <hr>
-
 <div class="row">
-
 <!-- PONTO 1  AMARELO -->
         <div class="col-md-4">
             <!-- Widget: user widget style 2 -->
@@ -439,6 +502,8 @@ opacity: 1 ;
           </div><!--FIM PONTO 3-->
 
 </div><!--FIM ROW-->
+
+
 <hr>
 <div class="row ">
         <!-- PONTO 1 AZUL CLARO -->
@@ -548,7 +613,7 @@ opacity: 1 ;
                   <img class="img-circle elevation-2" src="../../dist/img/user5-128x128.jpg" alt="User Avatar">
                 </div>
                 <!-- /.widget-user-image -->
-                <h3 class="widget-user-username">Ponto 03 - Ponto 03 - Alameda da Paixão, 1.290 - Pradaria</h3>
+                <h3 class="widget-user-username">Ponto 03 - Alameda da Paixão, 1.290 - Pradaria</h3>
                 <h5 class="widget-user-desc">Alvo - Carmelia Borba</h5>
               </div>
               <!--STATUS-->
@@ -585,7 +650,7 @@ opacity: 1 ;
 
 
 </div><!--FIM ROW-->
-<hr>
+
 <div class="row">
         <!-- PONTO 1 VERDE-->
         <div class="col-md-4">
@@ -730,7 +795,7 @@ opacity: 1 ;
 
 
 </div><!--FIM ROW-->
-<hr>
+
 <div class="row">
         <!-- PONTO 1 AZUL ESCURO-->
         <div class="col-md-4">
@@ -750,32 +815,36 @@ opacity: 1 ;
                 <!--STATUS-->
                 <div class="card-header"> 
                   <div class="card-tools">
-                  <a id="aEncaminhar" style="display:none;" href="#" class="small-box-footer"  data-toggle="modal" data-target="#modal-lgE">Encaminhar <i class="fas fa-arrow-circle-right"></i></a>
+                  <a id="aEncaminhar1" onclick="document.getElementById('numeroColuna').value=1" style="display:none;" href="#" class="small-box-footer"  data-toggle="modal" data-target="#modal-lgE">Encaminhar <i class="fas fa-arrow-circle-right"></i></a>
                       <span title="3 New Messages" style="margin-right:15px;margin-top:5px" class="badge">GAECO Análise</span>
                       <input class="form-check-input" type="checkbox" value="" id="checkAll" onchange="marcaTodos()" style="margin-left:-10px;margin-top:5px" >
                   </div>
                 </div>
                 <!--FIM STATUS-->
               <div class="card-footer p-0">
-                <ul class="nav flex-column">
-                  <li class="nav-item" >
-                    <input class="form-check-input" type="checkbox" value="" id="check1" style="margin-left:10px;margin-top:12px">
-                    <a href="#" class="nav-link" style="margin-left:10px;">
-                    Computador preto Dell Inspiron  <span class="float-right badge bg-primary">Devolvido</span>
-                     <span class="float-right badge" onclick="javascript:abreJanela()" role="button">Termo de restituição</span>
-                    </a>
-                  </li> 
-
+              <ul class="nav flex-column">
                   <li class="nav-item">
-                    <input class="form-check-input" type="checkbox" value="" id="check2" style="margin-left:10px;margin-top:12px">
-                    <a href="#" class="nav-link"  style="margin-left:10px;">
-                      HD Barracuda 512 GB <span class="float-right badge bg-success">01</span>
+                  <input class="form-check-input" type="checkbox" value="" id="check1" onchange="marcaTodos()" style="margin-left:10px;margin-top:15px">
+                    <a href="#" class="nav-link">
+                       &nbsp;&nbsp;&nbsp;Computador preto Dell Inspiron  <span class="float-right badge bg-primary">01</span>
                     </a>
                   </li>
                   <li class="nav-item">
-                      <input class="form-check-input" type="checkbox" value="" id="check3" style="margin-left:10px;margin-top:12px">
-                    <a href="#" class="nav-link"  style="margin-left:10px;">
-                      Documentos diversos <span class="float-right badge bg-danger">Incluido nos autos</span>
+                  <input class="form-check-input" type="checkbox" value="" id="check2" onchange="marcaTodos()" style="margin-left:10px;margin-top:15px">
+                    <a href="#" class="nav-link">
+                    &nbsp;&nbsp;&nbsp;Smartphone Sansumg Galaxie S5 <span class="float-right badge bg-info">01</span>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                  <input class="form-check-input" type="checkbox" value="" id="check3" onchange="marcaTodos()" style="margin-left:10px;margin-top:15px">
+                    <a href="#" class="nav-link">
+                    &nbsp;&nbsp;&nbsp;HD Barracuda 512 GB <span class="float-right badge bg-success">01</span>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                  <input class="form-check-input" type="checkbox" value="" id="check4" onchange="marcaTodos()" style="margin-left:10px;margin-top:15px">
+                    <a href="#" class="nav-link">
+                    &nbsp;&nbsp;&nbsp;Documentos diversos <span class="float-right badge bg-danger">12</span>
                     </a>
                   </li>
                 </ul>
@@ -798,16 +867,16 @@ opacity: 1 ;
                 </div>
                 
                 <!-- /.widget-user-image -->
-                <h3 class="widget-user-username">Ponto 02 e 03 </h3>
+                <h3 class="widget-user-username">Ponto 02 - Rua Igarapoé, 118 - Bairro Almeida</h3>
                 <h5 class="widget-user-desc">Alvos - Demétrios Damares e Carmelia Borba</h5>
               </div>
                 <!--STATUS-->
                 <div class="card-header"> 
                   <div class="card-tools">
-                    <a id="aEncaminhar2" style="display:none;" href="#" class="small-box-footer"  
+                    <a id="aEncaminhar2" onclick="document.getElementById('numeroColuna').value=2" style="display:none;" href="#" class="small-box-footer "  
                     data-toggle="modal" data-target="#modal-lgE">Encaminhar<i class="fas fa-arrow-circle-right"></i>
                   </a>
-                      <span title="3 New Messages" class="badge" style="margin-right:15px;margin-top:5px">Encaminhado a CEAT</span>
+                      <span  title="3 New Messages" class="badge" style="margin-right:15px;margin-top:5px">Encaminhado a CEAT</span>
                       <input class="form-check-input" type="checkbox" value="" id="checkAll" onchange="marcaTodos2()" style="margin-left:-10px;margin-top:5px" >
                   </div>
                 </div>
@@ -815,39 +884,210 @@ opacity: 1 ;
 
 
               <div class="card-footer p-0">
-                <ul class="nav flex-column">
+              <ul class="nav flex-column">
                   <li class="nav-item">
-                  <input class="form-check-input" type="checkbox" onchange="if(document.getElementById('aEncaminhar2').style.display=='none'){document.getElementById('aEncaminhar2').style.display='inline-block';}else{document.getElementById('aEncaminhar2').style.display='none';}" value="" id="check4" style="margin-left:10px;margin-top:12px">
+                  <input class="form-check-input" type="checkbox" value="" id="check5" onchange="marcaTodos()" style="margin-left:10px;margin-top:15px">
+                    <a href="#" class="nav-link">
+                    &nbsp;&nbsp;&nbsp;Computador HP 17 preto <span class="float-right badge bg-primary">01</span>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                  <input class="form-check-input" type="checkbox" value="" id="check6" onchange="marcaTodos()" style="margin-left:10px;margin-top:15px">
+                    <a href="#" class="nav-link">
+                    &nbsp;&nbsp;&nbsp;Notebook HP Compag <span class="float-right badge bg-info">01</span>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                  <input class="form-check-input" type="checkbox" value="" id="check7" onchange="marcaTodos()" style="margin-left:10px;margin-top:15px">
+                    <a href="#" class="nav-link">
+                    &nbsp;&nbsp;&nbsp;03 pen drives 16 GB <span class="float-right badge bg-success">03</span>
+                    </a>
+                  </li>
+
+                </ul>
+              </div>
+            </div>
+            <!-- /.widget-user -->
+          </div><!--FIM PONTO 2-->
+         <!-- PONTO 2 AZUL ESCURO-->
+
+         <div class="col-md-4">
+            <!-- Widget: user widget style 2 -->
+            <div class="card card-widget widget-user-2">
+            
+              <!-- Add the bg color to the header using any of the bg-* classes -->
+              <div class="widget-user-header bg-primary">
+                
+                <div class="widget-user-image">
+                  <!--img class="img-circle elevation-2" src="../../dist/img/user6-128x128.jpg" alt="User Avatar"--cd -->
+                </div>
+                
+                <!-- /.widget-user-image -->
+                <h3 class="widget-user-username">Ponto 03- Alameda da Paixão, 1.290 - Pradaria</h3>
+                <h5 class="widget-user-desc">Alvos - Demétrios Damares e Carmelia Borba</h5>
+              </div>
+                <!--STATUS-->
+                <div class="card-header"> 
+                  <div class="card-tools">
+                    <a id="aEncaminhar3" style="display:none;" onclick="document.getElementById('numeroColuna').value=3" href="#" class="small-box-footer"  
+                    data-toggle="modal" data-target="#modal-lgE">Encaminhar<i class="fas fa-arrow-circle-right"></i>
+                  </a>
+                      <span title="3 New Messages" class="badge" style="margin-right:15px;margin-top:5px">Encaminhado a CEAT</span>
+                      <input class="form-check-input" type="checkbox" value="" id="checkAll" onchange="marcaTodos3()" style="margin-left:-10px;margin-top:5px" >
+                  </div>
+                </div>
+                <!--FIM STATUS-->
+
+
+              <div class="card-footer p-0">
+              <ul class="nav flex-column">
+                  <li class="nav-item">
+                  <input class="form-check-input" type="checkbox" value="" id="check8" onchange="marcaTodos()" style="margin-left:10px;margin-top:15px">
+                    <a href="#" class="nav-link">
+                    &nbsp;&nbsp;&nbsp;Smartphone xiaomi dourado <span class="float-right badge bg-primary">01</span>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                  <input class="form-check-input" type="checkbox" value="" id="check9" onchange="marcaTodos()" style="margin-left:10px;margin-top:15px">
+                    <a href="#" class="nav-link">
+                    &nbsp;&nbsp;&nbsp; Smartphone Iphone 12 pro <span class="float-right badge bg-info">01</span>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                  <input class="form-check-input" type="checkbox" value="" id="check10" onchange="marcaTodos()" style="margin-left:10px;margin-top:15px">
+                    <a href="#" class="nav-link">
+                    &nbsp;&nbsp;&nbsp;  Midia em DVR  <span class="float-right badge bg-success">01</span>
+                    </a>
+                  </li>
+                 
+                </ul>
+              </div>
+            </div>
+            <!-- /.widget-user -->
+          </div><!--FIM PONTO 2-->
+</div><!--FIM ROW - AZUL ESCURO -->
+
+
+<!-- VERMELHO OPÇÃO 1  PONTO 1 -->
+<div class="row">
+
+            <div class="col-md-4" style="display:none;" id="novaLinha1">
+
+                <div class="card card-widget widget-user-2">
+
+                  <div class="widget-user-header bg-danger">
+                    <div class="widget-user-image">
+                      <img class="img-circle elevation-2" src="../../dist/img/user7-128x128.jpg" alt="User Avatar">
+                    </div>
+                    <h3 class="widget-user-username">Ponto 01 - Rua Levindo Torres, 42 - Bairro Horta </h3>
+                    <h5 class="widget-user-desc">Alvo - Aristóteles Agustus</h5>
+                  </div>
+                  
+                  <div class="card-header"> 
+                    <div class="card-tools">
+                    <a id="aEncaminhar1" style="display:none;" href="#" class="small-box-footer"  data-toggle="modal" data-target="#modal-lgE">Encaminhar <i class="fas fa-arrow-circle-right"></i></a>
+                        <span id="spanTarefa1" title="3 New Messages" style="margin-right:15px;margin-top:5px" class="badge"></span>
+                        <input class="form-check-input" type="checkbox" value="" id="checkAll" onchange="marcaTodos()" style="margin-left:-10px;margin-top:5px" >
+                    </div>
+                  </div>
+                  <div class="card-footer p-0">
+                    <ul class="nav flex-column">
+                      <li class="nav-item" >
+                        <input class="form-check-input"  type="checkbox" value="" id="check11" style="margin-left:10px;margin-top:12px">
+                        <a href="#" class="nav-link" style="margin-left:10px;">
+                        &nbsp;&nbsp;&nbsp; Computador preto Dell Inspiron  <span class="float-right badge bg-primary">Devolvido</span>
+                        <span class="float-right badge" onclick="javascript:abreJanela()" role="button">Termo de restituição</span>
+                        </a>
+                      </li> 
+
+                      <li class="nav-item">
+                        <input class="form-check-input" type="checkbox" value="" id="check12" style="margin-left:10px;margin-top:12px">
+                        <a href="#" class="nav-link"  style="margin-left:10px;">
+                        &nbsp;&nbsp;&nbsp;  HD Barracuda 512 GB <span class="float-right badge bg-success">01</span>
+                        </a>
+                      </li>
+                      <li class="nav-item">
+                          <input class="form-check-input" type="checkbox" value="" id="check13" style="margin-left:10px;margin-top:12px">
+                        <a href="#" class="nav-link"  style="margin-left:10px;">
+                         &nbsp;&nbsp;&nbsp; Documentos diversos <span class="float-right badge bg-danger">Incluido nos autos</span>
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+
+                </div>
+
+              </div>
+          <div class="col-md-4"></div>
+         <div class="col-md-4"></div>
+</div><!--FIM ROW-->
+
+<hr><!-- VERMELHO 1 OPÇÃO 2  -->
+<div class="row">
+        <div class="col-md-4">
+        </div>
+          <div class="col-md-4"  style="display:none;" id="novaLinha2">
+            <!-- Widget: user widget style 2 -->
+            <div class="card card-widget widget-user-2">
+            
+              <!-- Add the bg color to the header using any of the bg-* classes -->
+              <div class="widget-user-header bg-danger">
+                
+                <div class="widget-user-image">
+                  <!--img class="img-circle elevation-2" src="../../dist/img/user6-128x128.jpg" alt="User Avatar"--cd -->
+                </div>
+                
+                <!-- /.widget-user-image -->
+                <h3 class="widget-user-username">Ponto 02 - Rua Igarapoé, 118 - Bairro Almeida</h3>
+                <h5 class="widget-user-desc">Alvos - Demétrios Damares e Carmelia Borba</h5>
+              </div>
+                <!--STATUS-->
+                <div class="card-header"> 
+                  <div class="card-tools">
+                    <a id="aEncaminhar2" style="display:none;" href="#" class="small-box-footer "  
+                    data-toggle="modal" data-target="#modal-lgE">Encaminhar<i class="fas fa-arrow-circle-right"></i>
+                  </a>
+                  <span id="spanTarefa2" title="3 New Messages" style="margin-right:15px;margin-top:5px" class="badge"></span>
+                      <input class="form-check-input" type="checkbox" value="" id="checkAll" onchange="marcaTodos2()" style="margin-left:-10px;margin-top:5px" >
+                  </div>
+                </div>
+                <!--FIM STATUS-->
+
+
+              <div class="card-footer p-0">
+              <ul class="nav flex-column">
+                  <li class="nav-item">
+                  <input class="form-check-input obj" type="checkbox"  value="" id="check14" style="margin-left:10px;margin-top:12px">
                     <a href="#" class="nav-link"  style="margin-left:10px;">
                     Computador HP 17 preto <span class="float-right badge bg-primary">01</span>
                     </a>
                   </li>
                   <li class="nav-item">
-                  <input class="form-check-input" type="checkbox" onchange="if(document.getElementById('aEncaminhar2').style.display=='none'){document.getElementById('aEncaminhar2').style.display='inline-block';}else{document.getElementById('aEncaminhar2').style.display='none';}" value="" id="check5" style="margin-left:10px;margin-top:12px">
+                  <input class="form-check-input obj" type="checkbox"  value="" id="check15" style="margin-left:10px;margin-top:12px">
                     <a href="#" class="nav-link"  style="margin-left:10px;">
                       Notebook HP Compag <span class="float-right badge bg-info">01</span>
                     </a>
                   </li>
                   <li class="nav-item">
-                  <input class="form-check-input" type="checkbox" onchange="if(document.getElementById('aEncaminhar2').style.display=='none'){document.getElementById('aEncaminhar2').style.display='inline-block';}else{document.getElementById('aEncaminhar2').style.display='none';}" value="" id="check6" style="margin-left:10px;margin-top:12px">
+                  <input class="form-check-input obj" type="checkbox"  value="" id="check16" style="margin-left:10px;margin-top:12px">
                     <a href="#" class="nav-link" style="margin-left:10px;">
                       03 pen drives 16 GB <span class="float-right badge bg-success">03</span>
                     </a>
                   </li>
                   <li class="nav-item">
-                  <input class="form-check-input" type="checkbox" onchange="if(document.getElementById('aEncaminhar2').style.display=='none'){document.getElementById('aEncaminhar2').style.display='inline-block';}else{document.getElementById('aEncaminhar2').style.display='none';}" value="" id="check7" style="margin-left:10px;margin-top:12px">
+                  <input class="form-check-input obj" type="checkbox"  value="" id="check17" style="margin-left:10px;margin-top:12px">
                     <a href="#" class="nav-link" style="margin-left:10px;">
                     Smartphone xiaomi dourado <span class="float-right badge bg-primary">01</span>
                     </a>
                   </li>
                   <li class="nav-item">
-                  <input class="form-check-input" type="checkbox" onchange="if(document.getElementById('aEncaminhar2').style.display=='none'){document.getElementById('aEncaminhar2').style.display='inline-block';}else{document.getElementById('aEncaminhar2').style.display='none';}"value="" id="check8" style="margin-left:10px;margin-top:12px">
+                  <input class="form-check-input obj" type="checkbox"  value="" id="check18" style="margin-left:10px;margin-top:12px">
                     <a href="#" class="nav-link" style="margin-left:10px;">
                     Smartphone Iphone 12 pro <span class="float-right badge bg-info">01</span>
                     </a>
                   </li>
                   <li class="nav-item">
-                  <input class="form-check-input" type="checkbox" onchange="if(document.getElementById('aEncaminhar2').style.display=='none'){document.getElementById('aEncaminhar2').style.display='inline-block';}else{document.getElementById('aEncaminhar2').style.display='none';}" value="" id="check9" style="margin-left:10px;margin-top:12px">
+                  <input class="form-check-input obj" type="checkbox"  value="" id="check19" style="margin-left:10px;margin-top:12px">
                     <a href="#" class="nav-link" style="margin-left:10px;">
                       Midia em DVR  <span class="float-right badge bg-success">01</span>
                     </a>
@@ -855,16 +1095,141 @@ opacity: 1 ;
                 </ul>
               </div>
             </div>
-            <!-- /.widget-user -->
-          </div><!--FIM PONTO 2-->
-         
-
+          </div>
+         <div class="col-md-4">  
+         </div>
 </div><!--FIM ROW-->
 
-<!-- FIM GRID -->
-  </div>
-</div>
+<!-- VERMELHO 1 OPÇÃO 3  -->
+
+<div class="row">   
+        <div class="col-md-4">
+        </div>
+        <div class="col-md-4">
+        </div>
+        <!-- PONTO 3 VERMELHO-->
+         <div class="col-md-4" style="display:none;" id="novaLinha3">
+            <!-- Widget: user widget style 2 -->
+            <div class="card card-widget widget-user-2">
+            
+              <!-- Add the bg color to the header using any of the bg-* classes -->
+              <div class="widget-user-header bg-danger">
+                
+                <div class="widget-user-image">
+                  <!--img class="img-circle elevation-2" src="../../dist/img/user6-128x128.jpg" alt="User Avatar"--cd -->
+                </div>
+                
+                <!-- /.widget-user-image -->
+                <h3 class="widget-user-username">Ponto 03- Alameda da Paixão, 1.290 - Pradaria</h3>
+                <h5 class="widget-user-desc">Alvos - Demétrios Damares e Carmelia Borba</h5>
+              </div>
+                <!--STATUS-->
+                <div class="card-header"> 
+                  <div class="card-tools">
+                    <a id="aEncaminhar3" style="display:none;" href="#" class="small-box-footer"  
+                    data-toggle="modal" data-target="#modal-lgE">Encaminhar<i class="fas fa-arrow-circle-right"></i>
+                  </a>
+                  <span id="spanTarefa3" title="3 New Messages" style="margin-right:15px;margin-top:5px" class="badge"></span>
+                      <input class="form-check-input" type="checkbox" value="" id="checkAll" onchange="marcaTodos3()" style="margin-left:-10px;margin-top:5px" >
+                  </div>
+                </div>
+                <!--FIM STATUS-->
+
+              <div class="card-footer p-0">
+                <ul class="nav flex-column">
+                  <li class="nav-item">
+                  <input class="form-check-input obj" type="checkbox"  value="" id="check20" style="margin-left:10px;margin-top:12px">
+                    <a href="#" class="nav-link"  style="margin-left:10px;">
+                    Computador HP 17 preto <span class="float-right badge bg-primary">01</span>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                  <input class="form-check-input obj" type="checkbox"  value="" id="check21" style="margin-left:10px;margin-top:12px">
+                    <a href="#" class="nav-link"  style="margin-left:10px;">
+                      Notebook HP Compag <span class="float-right badge bg-info">01</span>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                  <input class="form-check-input obj" type="checkbox" value="" id="check22" style="margin-left:10px;margin-top:12px">
+                    <a href="#" class="nav-link" style="margin-left:10px;">
+                      03 pen drives 16 GB <span class="float-right badge bg-success">03</span>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                  <input class="form-check-input obj" type="checkbox"  value="" id="check23" style="margin-left:10px;margin-top:12px">
+                    <a href="#" class="nav-link" style="margin-left:10px;">
+                    Smartphone xiaomi dourado <span class="float-right badge bg-primary">01</span>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                  <input class="form-check-input obj" type="checkbox"  value="" id="check24" style="margin-left:10px;margin-top:12px">
+                    <a href="#" class="nav-link" style="margin-left:10px;">
+                    Smartphone Iphone 12 pro <span class="float-right badge bg-info">01</span>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                  <input class="form-check-input obj" type="checkbox"  value="" id="check25" style="margin-left:10px;margin-top:12px">
+                    <a href="#" class="nav-link" style="margin-left:10px;">
+                      Midia em DVR  <span class="float-right badge bg-success">01</span>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div><!--FIM PONTO 3-->
+</div><!--FIM ROW-->
     
+
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            </div>
+              <div class="tab-pane fade" id="custom-content-below-profile" role="tabpanel" aria-labelledby="custom-content-below-profile-tab">
+                CONTEUDO DO PONTO 3, 4, 5
+              </div>
+              <div class="tab-pane fade" id="custom-content-below-messages" role="tabpanel" aria-labelledby="custom-content-below-messages-tab">
+                CONTEUDO DO PONTO 6, 7, 8
+              </div>
+              <div class="tab-pane fade" id="custom-content-below-settings" role="tabpanel" aria-labelledby="custom-content-below-settings-tab">
+                 CONTEUDO DO PONTO 9, 10, 11 ...
+              </div>
+            </div>
+          <!-- /.card -->
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>

@@ -18,9 +18,12 @@ $path_menu="../";
   <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
   <!-- Theme style -->
   <link rel="stylesheet" href="<?php echo($path_page)?>dist/css/adminlte.min.css">
+  <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
   
   <script>
-    function mostrar(estilo){
+
+  function mostrar(estilo){
     if(estilo=='none'){
       document.getElementById('form_proc').style.display="block";
     }else{
@@ -29,6 +32,7 @@ $path_menu="../";
   }
   </script>
   <script>
+
   function incluirDados(proc,fase,oper,rat,mamp,pro){
     let table = document.getElementById('tb_proc');
     let thead = document.getElementById('thead_1');
@@ -268,7 +272,15 @@ Elementos realaçionado a criptoativos. (hard Wallets,cold wallet,seeds,etc)
                       </div>
                     </div>
                     <div class="form-group">
-                       <button type="button" onclick="javascript:incluirDados(document.getElementById('proc').value,document.getElementById('fase').value,document.getElementById('oper').value,document.getElementById('rat').value,document.getElementById('mamp').value,document.getElementById('pro').value);" class="btn btn-primary">Gravar</button>
+                       <!--button type="button" onclick="javascript:incluirDados(document.getElementById('proc').value,document.getElementById('fase').value,document.getElementById('oper').value,document.getElementById('rat').value,document.getElementById('mamp').value,document.getElementById('pro').value);" class="btn btn-primary">Gravar</button-->
+                       <button type="button" id="addBtn" onclick="incluirDados(
+                         document.getElementById('proc').value,
+                         document.getElementById('fase').value,
+                         document.getElementById('oper').value,
+                         document.getElementById('rat').value,
+                         document.getElementById('mamp').value,
+                         document.getElementById('pro').value
+                       )" class="btn btn-primary">Gravar</button>
                     </div>
                   </div>
                 </div>
@@ -360,6 +372,7 @@ Elementos realaçionado a criptoativos. (hard Wallets,cold wallet,seeds,etc)
 
 <!-- jQuery -->
 <script src="../../plugins/jquery/jquery.min.js"></script>
+
 <!-- Bootstrap -->
 <script src="../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 <!-- AdminLTE -->
@@ -371,7 +384,8 @@ Elementos realaçionado a criptoativos. (hard Wallets,cold wallet,seeds,etc)
 <script src="../../dist/js/demo.js"></script>
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 <script src="../../dist/js/pages/dashboard3.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+
 
 </div>
 </body>

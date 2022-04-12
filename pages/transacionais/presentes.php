@@ -60,9 +60,9 @@ $path_menu="../";
       if(value==1){operacao="Operação Valquíria"};
       if(value==2){operacao="Operação falcão"};
       if(value==3){operacao="Operação Mel Amargo"};
-      document.getElementById("op01").value=operacao;
-      document.getElementById("op02").value=operacao;
-      document.getElementById("op03").value=operacao;
+      document.getElementById("op01").innerHTML=operacao;
+      document.getElementById("op02").innerHTML=operacao;
+      document.getElementById("op03").innerHTML=operacao;
     }
   };
   </script>
@@ -135,12 +135,12 @@ $path_menu="../";
                     <div class="form-group">
                       <div class="row">
                         <div class="col-lg-2">
-                          <label for="mamp">MAMP/Matrícula</label>
-                          <input type="text" class="form-control" id="mamp" placeholder="Digite o MAMP o Matrícula">
+                          <label for="mamp">Documento</label>
+                          <input type="text" class="form-control" id="mamp" placeholder="Digite um documento">
                         </div>
                         <div class="col-lg-8">
                           <label for="nome">Nome</label>
-                          <input type="text" class="form-control" id="nome" placeholder="Digite o nome do participante">
+                          <input type="text" class="form-control" id="nome" placeholder="Digite o nome da pessoa presente">
                         </div>
                         <div class="col-lg-2">
                           <label for="ponto">Ponto</label>
@@ -169,9 +169,9 @@ $path_menu="../";
                       </tr>
                     </thead>
                       <tbody id="tbody_1">
-                        <tr><td><input type="text" id="op01" style="border: 0 none;"></td><td style="border-right-style:hidden">Ponto 01 </td><td style="border-right-style:hidden">Maria Antonieta de Carvalho - RG 03.456.789  </td><td><div class="float-right"><a href="#" onclick="this.parentNode.parentNode.parentNode.style.display = 'none'"><i class="fa fa-minus-circle" style="font-size:28px;color:red"></i></a></div></td></tr>
-                        <tr><td><input type="text" id="op02" style="border: 0 none;"></td><td style="border-right-style:hidden">Ponto 02 </td><td style="border-right-style:hidden">Carlos Albert Souza - CPF 765.123.769-78 </td><td><div class="float-right"><a href="#" onclick="this.parentNode.parentNode.parentNode.style.display = 'none'"><i class="fa fa-minus-circle" style="font-size:28px;color:red"></i></a></div></td></tr>
-                        <tr><td><input type="text" id="op03" style="border: 0 none;"></td><td style="border-right-style:hidden">Ponto 03 </td><td style="border-right-style:hidden">Wlavir de Azevedo  - RG M4.234.567 </td><td><div class="float-right"><a href="#" onclick="this.parentNode.parentNode.parentNode.style.display = 'none'"><i class="fa fa-minus-circle" style="font-size:28px;color:red"></i></a></div></td></tr>
+                        <tr><td><span id="op01" style="border: 0 none;"></span></td><td style="border-right-style:hidden">Ponto 01 </td><td style="border-right-style:hidden">Maria Antonieta de Carvalho - RG 03.456.789  </td><td><div class="float-right"><a href="#" onclick="this.parentNode.parentNode.parentNode.style.display = 'none'"><i class="fa fa-minus-circle" style="font-size:28px;color:red"></i></a></div></td></tr>
+                        <tr><td><span type="text" id="op02" style="border: 0 none;"></span></td><td style="border-right-style:hidden">Ponto 02 </td><td style="border-right-style:hidden">Carlos Albert Souza - CPF 765.123.769-78 </td><td><div class="float-right"><a href="#" onclick="this.parentNode.parentNode.parentNode.style.display = 'none'"><i class="fa fa-minus-circle" style="font-size:28px;color:red"></i></a></div></td></tr>
+                        <tr><td><span type="text" id="op03" style="border: 0 none;"></span></td><td style="border-right-style:hidden">Ponto 03 </td><td style="border-right-style:hidden">Wlavir de Azevedo  - RG M4.234.567 </td><td><div class="float-right"><a href="#" onclick="this.parentNode.parentNode.parentNode.style.display = 'none'"><i class="fa fa-minus-circle" style="font-size:28px;color:red"></i></a></div></td></tr>
                       </tbody>
           <!--fim tabela-->
                   </table>

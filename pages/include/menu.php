@@ -50,6 +50,12 @@
                     <p>Banco evidências</p>
                   </a>
               </li>
+              <!--li class="nav-item">
+                  <a href="<?php echo($path_page)?>pages/transacionais/portfolio2.php" class="nav-link">
+                    <i class="far fa-circle text-info"></i>
+                    <p>Banco evidências 2</p>
+                  </a>
+              </li-->
               <li class="nav-item">
                   <a href="<?php echo($path_page)?>pages/transacionais/relatorioMovimentacoes.php" class="nav-link">
                     <i class="far fa-circle text-info"></i>
@@ -86,12 +92,7 @@
                     <p>Lançar ponto</p>
                   </a>
               </li>
-              <li class="nav-item">
-                  <a href="<?php echo($path_page)?>pages/transacionais/participantes.php" class="nav-link">
-                    <i class="far fa-circle text-info"></i>
-                    <p>Lançar participantes</p>
-                  </a>
-              </li>
+              
             </ul>
           </li>
           <!--Dia da operação-->
@@ -110,12 +111,7 @@
                       <p>Evidências</p>
                     </a>
                   </li>
-                <li class="nav-item">
-                  <a href="<?php echo($path_page)?>pages/transacionais/ponto.php" class="nav-link">
-                      <i class="far fa-circle text-info"></i>
-                      <p>Testem. evidência</p>
-                    </a>
-                </li>
+                
                 <li class="nav-item">
                 <a href="<?php echo($path_page)?>pages/transacionais/presentes.php" class="nav-link">
                       <i class="far fa-circle text-info"></i>
