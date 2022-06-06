@@ -45,6 +45,12 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
+                  <a href="<?php echo($path_page)?>pages/mba.php" class="nav-link">
+                    <i class="far fa-circle text-info"></i>
+                    <p>Cumprimento de M.B.A.</p>
+                  </a>
+              </li>
+              <li class="nav-item">
                   <a href="<?php echo($path_page)?>pages/gallery.php" class="nav-link">
                     <i class="far fa-circle text-info"></i>
                     <p>Operações por etapa</p>

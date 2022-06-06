@@ -4,7 +4,7 @@ $path_root="../../../";
 $path_page="../";
 $path_menu="./";
 $database="cadeiaCustodia";
-$conn = mysqli_connect("mysql","root","root");
+$conn = mysqli_connect("localhost","root","root");
 mysqli_select_db($conn, $database);
 ?>
 
@@ -16,29 +16,18 @@ mysqli_select_db($conn, $database);
 
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
-    <!-- IonIcons -->
-    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
   <!-- Font Awesome -->
   <link rel="stylesheet" href="../plugins/fontawesome-free/css/all.min.css">
   <!-- Ekko Lightbox -->
   <link rel="stylesheet" href="../plugins/ekko-lightbox/ekko-lightbox.css">
   <!-- Theme style -->
   <link rel="stylesheet" href="<?php echo($path_page)?>dist/css/adminlte.min.css">
-  <style type="text/css">
-    #linha1:hover,#linha2:hover,#linha3:hover,#linha4:hover,#linha5:hover,#linha6:hover,#linha7:hover,#linha8:hover
-    { 
-    z-index:-1;
-    background-color: rgba(0,0,0,0.1); 
-    transition: 0.2s;
-    opacity: 1 ;
-    }
-</style>
 <!-- Ant css-->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/antd/4.20.7/antd.compact.min.css">
 
 
 </head>
-<body class="hold-transition sidebar-mini">
+<body class="hold-transition sidebar-mini"> 
   <?php 
   if(isset($_POST['paramFiltro'])) {
    $paramFiltro = $_POST['paramFiltro'];
@@ -75,7 +64,7 @@ mysqli_select_db($conn, $database);
                 <div style="margin-top:4px">6) HD Externo SATA2 Sansumg 256 GB Série: 2376544679-09</div><br>
         </div>
       </div>
-       <div class="col-sm-46"><br>
+       <div class="col-sm-6"><br>
         <div class="btn-group" role="group" aria-label="" style="margin-top:10px"><button type="button" class="btn btn-outline-primary" style="margin-top:1px">Apreensão</button><button type="button" class="btn btn-primary">Restituição</button></div><br>
         <div class="btn-group" role="group" aria-label="" style="margin-top:10px"><button type="button" class="btn btn-outline-primary" style="margin-top:2px">Apreensão</button><button type="button" class="btn btn-primary">Restituição</button></div><br>
         <div class="btn-group" role="group" aria-label="" style="margin-top:10px"><button type="button" class="btn btn-outline-primary" style="margin-top:2px">Apreensão</button><button type="button" class="btn btn-primary">Restituição</button></div><br>
@@ -586,7 +575,7 @@ mysqli_select_db($conn, $database);
                         <br>
             <div class="card card-primary">
                     <div class="card-header">
-                        <h4 class="card-title">
+                        <h4 class="card-title" style="color:white">
                             Atividades em campo
                         </h4>
                     </div>
@@ -652,7 +641,7 @@ mysqli_select_db($conn, $database);
           <div class="col-12">
             <div class="card card-primary">
               <div class="card-header">
-                <h4 class="card-title">Central de custódia</h4>
+                <h4 class="card-title" style="color:white">Central de custódia</h4>
               </div>
               <div class="card-body">
               <div>
@@ -726,9 +715,7 @@ mysqli_select_db($conn, $database);
 <script src="../plugins/filterizr/jquery.filterizr.min.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="../dist/js/demo.js"></script>
-<!-- Page specific script -->
-<script src="../dist/js/pages/dashboard3.js"></script>
-<script src="../plugins/chart.js/Chart.min.js"></script>
+
 
 <script>
   $(function () {
