@@ -4,7 +4,7 @@ $path_root="../../../";
 $path_page="../";
 $path_menu="./";
 $database="cadeiaCustodia";
-$conn = mysqli_connect("mysql","root","root");
+$conn = mysqli_connect("localhost","root","root");
 mysqli_select_db($conn, $database);
 ?>
 
